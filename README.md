@@ -12,4 +12,12 @@ This is an entry into the Sustainability Hackathon.
 
 ### Tech stack:
 
-- TBH
+Frontend
+
+- NextJS
+- RainbowKit
+- Wagmi Hooks
+
+Contract
+
+- hardhat
