@@ -67,9 +67,7 @@ contract MyNFT is ERC721, IERC2981, Ownable, ReentrancyGuard {
         canMint
         oneTokenPerWallet
     {
-        for (uint256 i = 0; i < numberOfTokens; i++) {
-            _safeMint(msg.sender, nextTokenId());
-        }
+        _safeMint(msg.sender, nextTokenId());
     }
 
     // ============ PUBLIC READ-ONLY FUNCTIONS ============
