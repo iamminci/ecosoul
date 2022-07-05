@@ -31,8 +31,6 @@ contract MyNFT is ERC721, IERC2981, Ownable, ReentrancyGuard {
     MintState public mintState = MintState.Inactive;
 
     uint256 public constant MAX_TOTAL_SUPPLY = 5000;
-    uint256 public constant MAX_PUBLIC_SALE_MINTS = 100;
-    uint256 public constant PUBLIC_SALE_PRICE = 0 ether;
 
     constructor() ERC721("Plastic Bags NFT", "PBNFT") {}
 
