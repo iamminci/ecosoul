@@ -43,10 +43,7 @@ contract MyNFT is ERC721, IERC2981, Ownable, ReentrancyGuard {
     }
 
     modifier oneTokenPerWallet() {
-        require(
-            balanceOf(msg.sender) + numberOfTokens <= MAX_TOKENS_PER_WALLET,
-            "Exceeds max tokens per wallet"
-        );
+        require(balanceOf(msg.sender) <= 1, "Exceeds one token per wallet");
         _;
     }
 
