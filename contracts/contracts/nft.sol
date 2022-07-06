@@ -35,7 +35,7 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
 
     // ============ ACCESS CONTROL MODIFIERS ============
     modifier mintActive() {
-        require(mintState == MintState.Active, "Public sale is not open");
+        require(mintState == MintState.Active, "Mint is not open");
         _;
     }
 

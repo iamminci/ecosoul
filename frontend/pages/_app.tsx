@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import "@rainbow-me/rainbowkit/styles.css";
 
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -31,12 +32,31 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
+  const theme = extendTheme({
+    styles: {
+      global: (props: any) => ({
+        body: {
+          fontFamily: "Inter",
+          lineHeight: "base",
+        },
+      }),
+    },
+    // colors: {
+    //   brand: {
+    //     100: "#f7fafc",
+    //     900: "#1a202c",
+    //   },
+    // },
+  });
+
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ChakraProvider>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ChakraProvider>
   );
 }
 
