@@ -10,6 +10,7 @@ require("hardhat-gas-reporter");
 require("solidity-coverage");
 
 const {
+  RINKEBY_API_URL,
   GOERLI_API_URL,
   MAINNET_API_URL,
   POLYGON_API_URL,
@@ -39,7 +40,7 @@ task("etherscan-verify", "Verifies on etherscan", async (taskArgs, hre) => {
 
 module.exports = {
   solidity: "0.8.4",
-  defaultNetwork: "goerli",
+  defaultNetwork: "rinkeby",
   settings: {
     optimizer: {
       enabled: true,
@@ -48,6 +49,10 @@ module.exports = {
   },
   networks: {
     hardhat: {},
+    rinkeby: {
+      url: RINKEBY_API_URL ?? "",
+      accounts: [`0x${PRIVATE_KEY}`],
+    },
     goerli: {
       url: GOERLI_API_URL ?? "",
       accounts: [`0x${PRIVATE_KEY}`],
@@ -69,6 +74,7 @@ module.exports = {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
     apiKey: {
+      rinkeby: ETHERSCAN_API_KEY,
       goerli: ETHERSCAN_API_KEY,
       mainnet: ETHERSCAN_API_KEY,
       polygon: POLYGONSCAN_API_KEY,

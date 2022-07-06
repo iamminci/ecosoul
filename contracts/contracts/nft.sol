@@ -5,6 +5,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/interfaces/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -26,6 +27,8 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
         Inactive,
         Active
     }
+
+    bytes32 public adminMerkleRoot;
 
     MintState public mintState = MintState.Inactive;
 
@@ -51,6 +54,18 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
         require(
             tokenCounter.current() <= MAX_TOTAL_SUPPLY,
             "Insufficient tokens remaining"
+        );
+        _;
+    }
+
+    modifier isAdmin(bytes32[] calldata merkleProof) {
+        require(
+            MerkleProof.verify(
+                merkleProof,
+                adminMerkleRoot,
+                keccak256(abi.encodePacked(msg.sender))
+            ),
+            "Only admin can call this function"
         );
         _;
     }
@@ -113,7 +128,14 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
         mintState = MintState.Inactive;
     }
 
-    function setBaseURI(string memory _baseURI) external onlyOwner {
+    function setAdminMerkleRoot(bytes32 merkleRoot) external onlyOwner {
+        adminMerkleRoot = merkleRoot;
+    }
+
+    function setBaseURI(string memory _baseURI, bytes32[] calldata merkleProof)
+        external
+        isAdmin(merkleProof)
+    {
         baseURI = _baseURI;
     }
 

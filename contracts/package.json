@@ -13,12 +13,15 @@
     "@openzeppelin/contracts": "^4.7.0",
     "dotenv": "^16.0.1",
     "hardhat-gas-reporter": "^1.0.8",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.32",
     "solidity-coverage": "^0.7.21"
   },
   "scripts": {
     "verify": "npx hardhat etherscan-verify",
     "test": "npx hardhat test --network hardhat",
     "deploy": "npx hardhat run scripts/deploy.js",
-    "setMintActive": "npx hardhat run scripts/setMintActive.js"
+    "setMintActive": "npx hardhat run scripts/setMintActive.js",
+    "setAdminMerkleRoot": "npx hardhat run scripts/setAdminMerkleRoot.js"
   }
 }

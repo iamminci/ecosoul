@@ -12,14 +12,14 @@ async function main() {
 
   fs.copyFile(
     "artifacts/contracts/nft.sol/MyNFT.json",
-    "../frontend/abi/MyNFT.json",
+    "../frontend/data/MyNFT.json",
     (err) => {
       if (err) {
         console.log("Error Found:", err);
       } else {
         console.log(
           "\nCopied ABI file:",
-          fs.readFileSync("../frontend/abi/MyNFT.json", "utf8")
+          fs.readFileSync("../frontend/data/MyNFT.json", "utf8")
         );
       }
     }
