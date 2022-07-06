@@ -40,7 +40,10 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
     }
 
     modifier oneTokenPerWallet() {
-        require(balanceOf(msg.sender) <= 1, "Exceeds one token per wallet");
+        require(
+            balanceOf(msg.sender) < 1,
+            "Cannot mint more than one token per wallet"
+        );
         _;
     }
 
