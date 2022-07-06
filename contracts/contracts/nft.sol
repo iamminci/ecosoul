@@ -115,8 +115,7 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
     {
         require(_exists(tokenId), "Non-existent token");
 
-        return
-            string(abi.encodePacked(baseURI, "/", tokenId.toString(), ".json"));
+        return string(abi.encodePacked(baseURI, "/", tokenId.toString()));
     }
 
     // ============ OWNER-ONLY ADMIN FUNCTIONS ============

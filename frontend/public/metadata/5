@@ -1,0 +1,12 @@
+{
+  "name": "Plastic Bagz NFT",
+  "description": "EcoSoul starts with Plastic Bagz",
+  "image_url": "PLACEHOLDER_IMAGE_URL",
+  "tokenId": 5,
+  "attributes": [
+    {
+      "trait_type": "Score",
+      "value": "1"
+    }
+  ]
+}

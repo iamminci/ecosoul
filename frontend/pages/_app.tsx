@@ -10,7 +10,14 @@ import { publicProvider } from "wagmi/providers/public";
 import { useEffect, useState } from "react";
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [
+    chain.rinkeby,
+    chain.goerli,
+    chain.mainnet,
+    chain.polygon,
+    chain.optimism,
+    chain.arbitrum,
+  ],
   [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }), publicProvider()]
 );
 
