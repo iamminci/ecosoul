@@ -1,0 +1,146 @@
+[
+  {
+    "epoch": "1269",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233714833664",
+    "total_energy_kW_estimate": "221.156858990464",
+    "total_energy_kW_upper": "445.633674341344",
+    "timestamp": "2020-08-25T01:34:30.000Z"
+  },
+  {
+    "epoch": "1449",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000109745664",
+    "total_energy_kW_estimate": "0.000485499264",
+    "total_energy_kW_upper": "0.001611435744",
+    "timestamp": "2020-08-25T03:04:30.000Z"
+  },
+  {
+    "epoch": "2359",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233751415552",
+    "total_energy_kW_estimate": "221.157020823552",
+    "total_energy_kW_upper": "445.634211486592",
+    "timestamp": "2020-08-25T10:39:30.000Z"
+  },
+  {
+    "epoch": "2538",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000146327552",
+    "total_energy_kW_estimate": "0.000647332352",
+    "total_energy_kW_upper": "0.002148580992",
+    "timestamp": "2020-08-25T12:09:00.000Z"
+  },
+  {
+    "epoch": "2798",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233787997440",
+    "total_energy_kW_estimate": "221.157182656640",
+    "total_energy_kW_upper": "445.634748631840",
+    "timestamp": "2020-08-25T14:19:00.000Z"
+  },
+  {
+    "epoch": "2980",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000182909440",
+    "total_energy_kW_estimate": "0.000809165440",
+    "total_energy_kW_upper": "0.002685726240",
+    "timestamp": "2020-08-25T15:50:00.000Z"
+  },
+  {
+    "epoch": "3242",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233824579328",
+    "total_energy_kW_estimate": "221.157344489728",
+    "total_energy_kW_upper": "445.635285777088",
+    "timestamp": "2020-08-25T18:01:00.000Z"
+  },
+  {
+    "epoch": "3424",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000219491328",
+    "total_energy_kW_estimate": "0.000970998528",
+    "total_energy_kW_upper": "0.003222871488",
+    "timestamp": "2020-08-25T19:32:00.000Z"
+  },
+  {
+    "epoch": "3684",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233861161216",
+    "total_energy_kW_estimate": "221.157506322816",
+    "total_energy_kW_upper": "445.635822922336",
+    "timestamp": "2020-08-25T21:42:00.000Z"
+  },
+  {
+    "epoch": "3864",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000256073216",
+    "total_energy_kW_estimate": "0.001132831616",
+    "total_energy_kW_upper": "0.003760016736",
+    "timestamp": "2020-08-25T23:12:00.000Z"
+  },
+  {
+    "epoch": "4125",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233897743104",
+    "total_energy_kW_estimate": "221.157668155904",
+    "total_energy_kW_upper": "445.636360067584",
+    "timestamp": "2020-08-26T01:22:30.000Z"
+  },
+  {
+    "epoch": "4304",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000292655104",
+    "total_energy_kW_estimate": "0.001294664704",
+    "total_energy_kW_upper": "0.004297161984",
+    "timestamp": "2020-08-26T02:52:00.000Z"
+  },
+  {
+    "epoch": "4564",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233934324992",
+    "total_energy_kW_estimate": "221.157829988992",
+    "total_energy_kW_upper": "445.636897212832",
+    "timestamp": "2020-08-26T05:02:00.000Z"
+  },
+  {
+    "epoch": "4746",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000329236992",
+    "total_energy_kW_estimate": "0.001456497792",
+    "total_energy_kW_upper": "0.004834307232",
+    "timestamp": "2020-08-26T06:33:00.000Z"
+  },
+  {
+    "epoch": "5006",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.233970906880",
+    "total_energy_kW_estimate": "221.157991822080",
+    "total_energy_kW_upper": "445.637434358080",
+    "timestamp": "2020-08-26T08:43:00.000Z"
+  },
+  {
+    "epoch": "5186",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000365818880",
+    "total_energy_kW_estimate": "0.001618330880",
+    "total_energy_kW_upper": "0.005371452480",
+    "timestamp": "2020-08-26T10:13:00.000Z"
+  },
+  {
+    "epoch": "5447",
+    "miner": "f01102",
+    "total_energy_kW_lower": "29.234007488768",
+    "total_energy_kW_estimate": "221.158153655168",
+    "total_energy_kW_upper": "445.637971503328",
+    "timestamp": "2020-08-26T12:23:30.000Z"
+  },
+  {
+    "epoch": "5627",
+    "miner": "f01102",
+    "total_energy_kW_lower": "0.000402400768",
+    "total_energy_kW_estimate": "0.001780163968",
+    "total_energy_kW_upper": "0.005908597728",
+    "timestamp": "2020-08-26T13:53:30.000Z"
+  }
+]

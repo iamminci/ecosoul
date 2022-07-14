@@ -1,0 +1,146 @@
+[
+  {
+    "epoch": "1269",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0000930048",
+    "storage_energy_kW_estimate": "0.0003092352",
+    "storage_energy_kW_upper": "0.0008349408",
+    "timestamp": "2020-08-25T01:34:30.000Z"
+  },
+  {
+    "epoch": "1449",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0000930048",
+    "storage_energy_kW_estimate": "0.0003092352",
+    "storage_energy_kW_upper": "0.0008349408",
+    "timestamp": "2020-08-25T03:04:30.000Z"
+  },
+  {
+    "epoch": "2359",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001240064",
+    "storage_energy_kW_estimate": "0.0004123136",
+    "storage_energy_kW_upper": "0.0011132544",
+    "timestamp": "2020-08-25T10:39:30.000Z"
+  },
+  {
+    "epoch": "2538",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001240064",
+    "storage_energy_kW_estimate": "0.0004123136",
+    "storage_energy_kW_upper": "0.0011132544",
+    "timestamp": "2020-08-25T12:09:00.000Z"
+  },
+  {
+    "epoch": "2798",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001550080",
+    "storage_energy_kW_estimate": "0.0005153920",
+    "storage_energy_kW_upper": "0.0013915680",
+    "timestamp": "2020-08-25T14:19:00.000Z"
+  },
+  {
+    "epoch": "2980",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001550080",
+    "storage_energy_kW_estimate": "0.0005153920",
+    "storage_energy_kW_upper": "0.0013915680",
+    "timestamp": "2020-08-25T15:50:00.000Z"
+  },
+  {
+    "epoch": "3242",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001860096",
+    "storage_energy_kW_estimate": "0.0006184704",
+    "storage_energy_kW_upper": "0.0016698816",
+    "timestamp": "2020-08-25T18:01:00.000Z"
+  },
+  {
+    "epoch": "3424",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0001860096",
+    "storage_energy_kW_estimate": "0.0006184704",
+    "storage_energy_kW_upper": "0.0016698816",
+    "timestamp": "2020-08-25T19:32:00.000Z"
+  },
+  {
+    "epoch": "3684",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002170112",
+    "storage_energy_kW_estimate": "0.0007215488",
+    "storage_energy_kW_upper": "0.0019481952",
+    "timestamp": "2020-08-25T21:42:00.000Z"
+  },
+  {
+    "epoch": "3864",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002170112",
+    "storage_energy_kW_estimate": "0.0007215488",
+    "storage_energy_kW_upper": "0.0019481952",
+    "timestamp": "2020-08-25T23:12:00.000Z"
+  },
+  {
+    "epoch": "4125",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002480128",
+    "storage_energy_kW_estimate": "0.0008246272",
+    "storage_energy_kW_upper": "0.0022265088",
+    "timestamp": "2020-08-26T01:22:30.000Z"
+  },
+  {
+    "epoch": "4304",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002480128",
+    "storage_energy_kW_estimate": "0.0008246272",
+    "storage_energy_kW_upper": "0.0022265088",
+    "timestamp": "2020-08-26T02:52:00.000Z"
+  },
+  {
+    "epoch": "4564",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002790144",
+    "storage_energy_kW_estimate": "0.0009277056",
+    "storage_energy_kW_upper": "0.0025048224",
+    "timestamp": "2020-08-26T05:02:00.000Z"
+  },
+  {
+    "epoch": "4746",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0002790144",
+    "storage_energy_kW_estimate": "0.0009277056",
+    "storage_energy_kW_upper": "0.0025048224",
+    "timestamp": "2020-08-26T06:33:00.000Z"
+  },
+  {
+    "epoch": "5006",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0003100160",
+    "storage_energy_kW_estimate": "0.0010307840",
+    "storage_energy_kW_upper": "0.0027831360",
+    "timestamp": "2020-08-26T08:43:00.000Z"
+  },
+  {
+    "epoch": "5186",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0003100160",
+    "storage_energy_kW_estimate": "0.0010307840",
+    "storage_energy_kW_upper": "0.0027831360",
+    "timestamp": "2020-08-26T10:13:00.000Z"
+  },
+  {
+    "epoch": "5447",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0003410176",
+    "storage_energy_kW_estimate": "0.0011338624",
+    "storage_energy_kW_upper": "0.0030614496",
+    "timestamp": "2020-08-26T12:23:30.000Z"
+  },
+  {
+    "epoch": "5627",
+    "miner": "f01102",
+    "storage_energy_kW_lower": "0.0003410176",
+    "storage_energy_kW_estimate": "0.0011338624",
+    "storage_energy_kW_upper": "0.0030614496",
+    "timestamp": "2020-08-26T13:53:30.000Z"
+  }
+]
