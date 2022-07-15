@@ -1,10 +1,19 @@
 import axios from "axios";
-import fs from "fs";
 
 // fetch total redeemed REC purchased energy in MWh for given miner of minerId
 async function getRedeemedRenewableMWh(minerId: string): Promise<number> {
   const url = `https://proofs-api.zerolabs.green/api/partners/filecoin/nodes/${minerId}/transactions`;
 
+  // TODO: ensure no error when fetching data
+  // try {
+  //   const redeemedRECData = await axios.get(url);
+  //   const totalRedeemedRECWh = redeemedRECData.data.recsTotal;
+  //   const totalRedeemedRECMWh = Number(totalRedeemedRECWh) / Math.pow(10, 6);
+
+  //   return totalRedeemedRECMWh;
+  // } catch (err) {
+  //   console.log("error fetching redeemed energy: ", err);
+  // }
   const redeemedRECData = await axios.get(url);
   const totalRedeemedRECWh = redeemedRECData.data.recsTotal;
   const totalRedeemedRECMWh = Number(totalRedeemedRECWh) / Math.pow(10, 6);
@@ -44,7 +53,7 @@ async function getTotalRenewableMWh(minerId: string): Promise<number> {
 // given a minerID, fetch the total renewable energy purchased
 export async function getTotalRenewableEnergy(minerId: string) {
   const totalRECMWh = await getTotalRenewableMWh(minerId);
-  console.log("JM all EACs_MWh: ", totalRECMWh);
+  // console.log("JM all EACs_MWh: ", totalRECMWh);
   return totalRECMWh;
 }
 

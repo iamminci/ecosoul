@@ -2,7 +2,7 @@ const { fetchMinerRECList } = require("./fetchMinerRECList");
 const { fetchGridEmissions } = require("./fetchGridEmissions");
 const { fetchMinerEnergy } = require("./fetchMinerEnergy");
 const { fetchMinerLocations } = require("./fetchMinerLocations");
-const { fetchMinerRECDetails } = require("./fetchMinerRECDetails");
+const { fetchMinerRECDetails } = require("./fetchMinerRECTransactions");
 
 async function main() {
   await fetchMinerLocations();
@@ -14,8 +14,8 @@ async function main() {
 
 /*
 
-1. net carbon emissions (lower better) i.e. consumption - REC
-2. REC accounting period (shorter better)
+1. net carbon emissions (lower better) i.e. total energy consumed (consumption) - REC offset
+2. REC accounting period (shorter better), but how to calculate this?
 3. operational emissions (less better) - but miner has no control over that
 
 

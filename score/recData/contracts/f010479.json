@@ -1,1 +1,58 @@
-{"id":"f010479","buyerId":"47bace04-ed08-4852-b6e2-ab56a36381a4","blockchainAddress":null,"region":null,"country":null,"createdAt":"2022-07-06T16:50:59.574Z","updatedAt":"2022-07-06T16:50:59.574Z","contracts":[{"id":"4186a58e-cec5-4462-9727-f50e5680f4ba","productType":"GO","energySources":["WIND","SOLAR"],"contractDate":"2022-05-01T00:00:00.000Z","deliveryDate":"2022-06-30T00:00:00.000Z","reportingStart":"2021-01-01T00:00:00.000Z","reportingEnd":"2021-12-31T23:59:59.999Z","buyer":{"id":"47bace04-ed08-4852-b6e2-ab56a36381a4","name":"Buyer 1691","blockchainAddress":"0xA33627BB253EbAb34BE75596a1A7EAF0ECa60cb2","createdAt":"2022-07-06T16:50:47.547Z","updatedAt":"2022-07-06T16:50:59.116Z"},"seller":{"id":"75169dcd-611d-4460-8ce3-035075a55539","name":"ACT Commodities Inc.","addressLine1":"437 Madison Avenue, Suite 17A","addressLine2":"New York, NY, 10022, USA","contactPerson":null,"blockchainAddress":"0x7A2970805c3D36ff876f5065268f742AD1A11853","createdAt":"2022-07-06T19:41:48.244Z","updatedAt":"2022-07-06T19:42:03.906Z"},"openVolume":"36000000","deliveredVolume":"0","purchases":[],"timezoneOffset":120,"filecoinNode":{"id":"f010479","buyerId":"47bace04-ed08-4852-b6e2-ab56a36381a4","blockchainAddress":null,"region":null,"country":null,"createdAt":"2022-07-06T16:50:59.574Z","updatedAt":"2022-07-06T16:50:59.574Z"},"externalId":null,"onchainId":null,"label":null,"createdAt":"2022-07-06T20:44:10.810Z","updatedAt":"2022-07-06T20:44:10.810Z","countryRegionMap":[{"country":"FR","region":""}],"pageUrl":"https://proofs.zerolabs.green/partners/filecoin/contracts/4186a58e-cec5-4462-9727-f50e5680f4ba","dataUrl":"https://proofs-api.zerolabs.green/api/partners/filecoin/contracts/4186a58e-cec5-4462-9727-f50e5680f4ba"}]}
+{
+  "id": "f010479",
+  "buyerId": "47bace04-ed08-4852-b6e2-ab56a36381a4",
+  "blockchainAddress": null,
+  "region": null,
+  "country": null,
+  "createdAt": "2022-07-06T16:50:59.574Z",
+  "updatedAt": "2022-07-06T16:50:59.574Z",
+  "contracts": [
+    {
+      "id": "4186a58e-cec5-4462-9727-f50e5680f4ba",
+      "productType": "GO",
+      "energySources": ["WIND", "SOLAR"],
+      "contractDate": "2022-05-01T00:00:00.000Z",
+      "deliveryDate": "2022-06-30T00:00:00.000Z",
+      "reportingStart": "2021-01-01T00:00:00.000Z",
+      "reportingEnd": "2021-12-31T23:59:59.999Z",
+      "buyer": {
+        "id": "47bace04-ed08-4852-b6e2-ab56a36381a4",
+        "name": "Buyer 1691",
+        "blockchainAddress": "0xA33627BB253EbAb34BE75596a1A7EAF0ECa60cb2",
+        "createdAt": "2022-07-06T16:50:47.547Z",
+        "updatedAt": "2022-07-06T16:50:59.116Z"
+      },
+      "seller": {
+        "id": "75169dcd-611d-4460-8ce3-035075a55539",
+        "name": "ACT Commodities Inc.",
+        "addressLine1": "437 Madison Avenue, Suite 17A",
+        "addressLine2": "New York, NY, 10022, USA",
+        "contactPerson": null,
+        "blockchainAddress": "0x7A2970805c3D36ff876f5065268f742AD1A11853",
+        "createdAt": "2022-07-06T19:41:48.244Z",
+        "updatedAt": "2022-07-06T19:42:03.906Z"
+      },
+      "openVolume": "36000000",
+      "deliveredVolume": "0",
+      "purchases": [],
+      "timezoneOffset": 120,
+      "filecoinNode": {
+        "id": "f010479",
+        "buyerId": "47bace04-ed08-4852-b6e2-ab56a36381a4",
+        "blockchainAddress": null,
+        "region": null,
+        "country": null,
+        "createdAt": "2022-07-06T16:50:59.574Z",
+        "updatedAt": "2022-07-06T16:50:59.574Z"
+      },
+      "externalId": null,
+      "onchainId": null,
+      "label": null,
+      "createdAt": "2022-07-06T20:44:10.810Z",
+      "updatedAt": "2022-07-06T20:44:10.810Z",
+      "countryRegionMap": [{ "country": "FR", "region": "" }],
+      "pageUrl": "https://proofs.zerolabs.green/partners/filecoin/contracts/4186a58e-cec5-4462-9727-f50e5680f4ba",
+      "dataUrl": "https://proofs-api.zerolabs.green/api/partners/filecoin/contracts/4186a58e-cec5-4462-9727-f50e5680f4ba"
+    }
+  ]
+}

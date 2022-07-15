@@ -1,5 +1,4 @@
 import axios from "axios";
-import fs from "fs";
 
 type Epoch = {
   epoch: string;
@@ -93,10 +92,43 @@ export async function getTotalConsumedEnergy(minerId: string) {
   const cumulativeEnergyUpperBoundMWh = await getCumulativeEnergyUpperBoundMWh(
     minerId
   );
-  console.log("JM energyConsumed_Upper_MWh: ", cumulativeEnergyUpperBoundMWh);
+  // console.log("JM energyConsumed_Upper_MWh: ", cumulativeEnergyUpperBoundMWh);
   return cumulativeEnergyUpperBoundMWh;
 }
 
+export const defaultStartTime = new Date("2020-07-01").getTime(); // some hard coded value from Alan's data
+// get cumulative energy usage upper bound for given miner of minerId
+export async function getMinerTimePeriod(
+  minerId: string
+): Promise<[number, number]> {
+  const allCumulativeEnergyEpochs = await getAllEpochs(
+    "CumulativeEnergyModel_v_1_0_1",
+    minerId
+  );
+
+  let startTime = 0;
+
+  for (let i = 0; i < allCumulativeEnergyEpochs.length; i++) {
+    const epoch = allCumulativeEnergyEpochs[i] as any;
+    if (Number(epoch.energy_use_kW_estimate) > 0) {
+      startTime = new Date(epoch.timestamp).getTime();
+      break;
+    }
+  }
+
+  startTime = startTime ? startTime : defaultStartTime;
+
+  const finalEpochIdx = allCumulativeEnergyEpochs.length - 1;
+  // const startTimestamp = allCumulativeEnergyEpochs[0].timestamp;
+  const endTimestamp = allCumulativeEnergyEpochs[finalEpochIdx].timestamp;
+
+  // const startTime = new Date(startTimestamp).getTime();
+  const endTime = new Date(endTimestamp).getTime();
+
+  // console.log("miner: ", minerId, " has start time: ", startTime);
+  return [startTime, endTime];
+}
+
 // if (require.main === module) {
-//   getTotalConsumedEnergy();
+//   getTotalConsumedEnergy("f010528");
 // }
