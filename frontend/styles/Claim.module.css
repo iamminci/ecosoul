@@ -34,7 +34,6 @@
 }
 
 .contentContainer {
-  top: 100px;
   position: fixed;
   width: 100vw;
   z-index: 999;

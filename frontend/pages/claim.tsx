@@ -16,13 +16,17 @@ import {
   ModalBody,
   ModalCloseButton,
   Input,
+  Spinner,
 } from "@chakra-ui/react";
 import styles from "@styles/Claim.module.css";
 import { useState } from "react";
 import { abridgeAddress } from "@utils/abridgeAddress";
 import { useContractWrite } from "wagmi";
 import withTransition from "@components/withTransition";
-import { CheckCircleIcon, CheckIcon, CopyIcon } from "@chakra-ui/icons";
+import { CheckIcon, CopyIcon } from "@chakra-ui/icons";
+import contract from "@data/EcoSoul.json";
+
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
 const Claim: NextPage = () => {
   const [hasMinted, setHasMinted] = useState(false);
@@ -30,9 +34,11 @@ const Claim: NextPage = () => {
   const [baseURI, setBaseURI] = useState<string>("");
   const [scannedUserId, setScannedUserId] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isVerified, setIsVerified] = useState<boolean>(true);
+  const [isModalBtnLoading, setIsModalBtnLoading] = useState<boolean>(false);
 
   function handleClickCopyIcon() {
     setIsCopied(true);
@@ -41,6 +47,16 @@ const Claim: NextPage = () => {
       setIsCopied(false);
     }, 1000);
   }
+
+  function handleSPIdentityVerification() {
+    setIsModalBtnLoading(true);
+    setTimeout(() => {
+      setIsVerified(true);
+      setIsModalBtnLoading(false);
+      onClose();
+    }, 1000);
+  }
+
   //   const {
   //     data: lastTokenId,
   //     isError,
@@ -87,61 +103,40 @@ const Claim: NextPage = () => {
   //     }
   //   }, [address]);
 
-  //   const {
-  //     data: mintTxnResponse,
-  //     error: mintError,
-  //     isLoading: mintIsLoading,
-  //     write: mintWrite,
-  //   } = useContractWrite({
-  //     addressOrName: CONTRACT_ADDRESS
-  //       ? CONTRACT_ADDRESS
-  //       : "0x3d2a9340F3f14dEe00245B7De6e9695Db65DBFE0",
-  //     contractInterface: contract.abi,
-  //     functionName: "mint",
-  //     onError(error) {
-  //       console.log(error);
-  //     },
-  //     onSuccess(data) {
-  //       console.log("on mint success: ", data);
-  //       setHasMinted(true);
-  //     },
-  //   });
+  const {
+    data: mintTxnResponse,
+    error: mintError,
+    isLoading: mintIsLoading,
+    write: mintWrite,
+  } = useContractWrite({
+    addressOrName: CONTRACT_ADDRESS
+      ? CONTRACT_ADDRESS
+      : "0x6eFfa56FDB4AF1688Fa9Ff5E6C7Eb24813f00060",
+    contractInterface: contract.abi,
+    functionName: "mint",
+    onError(error) {
+      console.log(error);
+    },
+    onSuccess(data) {
+      console.log("on mint success: ", data);
+      setHasMinted(true);
+    },
+  });
 
-  //   const {
-  //     data: setBaseURITxnResponse,
-  //     error: setBaseURIError,
-  //     isLoading: setBaseURIIsLoading,
-  //     write: setBaseURIWrite,
-  //   } = useContractWrite({
-  //     addressOrName: CONTRACT_ADDRESS
-  //       ? CONTRACT_ADDRESS
-  //       : "0x3d2a9340F3f14dEe00245B7De6e9695Db65DBFE0",
-  //     contractInterface: contract.abi,
-  //     functionName: "setBaseURI",
-  //     args: [baseURI, merkleProof],
-  //     onError(error) {
-  //       console.log(error);
-  //     },
-  //     onSuccess(data) {
-  //       console.log("on set base URI success: ", data);
-  //       setHasMinted(true);
-  //     },
-  //   });
-
-  //   const setupNFT = async () => {
-  //     try {
-  //       //   if (!lastTokenId) {
-  //       //     console.error("Latest token ID not found");
-  //       //     return;
-  //       //   }
-  //       await mintWrite();
-  //       console.log("successfully minted EcoSoul NFT");
-  //       //   await addUser(lastTokenId.toNumber() + 1);
-  //       //   console.log("successfully added user to db");
-  //     } catch (err) {
-  //       console.log("Error minting NFT: ", err);
-  //     }
-  //   };
+  const setupNFT = async () => {
+    try {
+      //   if (!lastTokenId) {
+      //     console.error("Latest token ID not found");
+      //     return;
+      //   }
+      await mintWrite();
+      console.log("successfully minted EcoSoul NFT");
+      //   await addUser(lastTokenId.toNumber() + 1);
+      //   console.log("successfully added user to db");
+    } catch (err) {
+      console.log("Error minting NFT: ", err);
+    }
+  };
 
   //   // add user to DB if it doesn't exist
   //   //   const addUser = async (tokenId: number) => {
@@ -220,8 +215,6 @@ const Claim: NextPage = () => {
   //     await transaction.wait();
   //   }
 
-  const isVerified = false;
-
   return (
     <>
       <div className={styles.container}>
@@ -239,7 +232,7 @@ const Claim: NextPage = () => {
                 Join the community of eco-friendly FIL Storage Providers by
                 minting the EcoSoul-bound token and sharing with the world.
               </Text>
-              <button className={styles.btn} onClick={onOpen}>
+              <button className={styles.btn} onClick={setupNFT}>
                 Claim Your NFT
               </button>
             </VStack>
@@ -300,8 +293,17 @@ const Claim: NextPage = () => {
                 />
               </ModalBody>
               <Box h="2rem" />
-              <button className={styles.btn} onClick={onOpen}>
-                Verify SP Identity
+              <button
+                className={styles.btn}
+                onClick={handleSPIdentityVerification}
+              >
+                {isModalBtnLoading ? (
+                  <Box width="100%" display="flex" justifyContent="center">
+                    <Spinner color="white" />
+                  </Box>
+                ) : (
+                  "Verify SP Identity"
+                )}
               </button>
             </VStack>
           </ModalContent>

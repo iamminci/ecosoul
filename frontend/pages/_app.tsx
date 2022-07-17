@@ -34,7 +34,7 @@ const wagmiClient = createClient({
   provider,
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   const [mounted, setMounted] = useState(false);
 
   // prevent hydration UI bug: https://blog.saeloun.com/2021/12/16/hydration.html
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <RainbowKitProvider chains={chains}>
           <AnimatePresence exitBeforeEnter>
             <Navbar />
-            <Component {...pageProps} />
+            <Component {...pageProps} key={router.route} />
           </AnimatePresence>
         </RainbowKitProvider>
       </WagmiConfig>
