@@ -1,16 +1,28 @@
 .container {
-  /* padding: 0 2rem; */
-}
-
-.heroVideo {
-  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   background-color: rgba(4, 14, 47);
+  color: white;
+  padding-top: 150px;
+  position: relative;
 }
 
-.heroVideo:after {
+.backdropImage {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url(/earth.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.backdropImage:after {
   content: "";
   width: 100%;
   height: calc(100% + 1px);
@@ -18,13 +30,12 @@
   top: -1px;
   left: -1px;
   z-index: 1;
-  background-image: linear-gradient(90deg, #040e2f, rgba(4, 14, 47, 0.4) 63%);
+  background-image: linear-gradient(180deg, #040e2f, rgba(4, 14, 47, 0.4) 63%);
 }
 
 .contentContainer {
   top: 100px;
   position: fixed;
-  height: calc(100% - 160px);
   width: 100vw;
   z-index: 999;
   display: flex;
@@ -34,15 +45,26 @@
 }
 
 .titleContainer {
-  padding: 0 4rem;
+  padding-bottom: 4rem;
 }
 
 .title {
-  font-size: 42px;
+  font-size: 24px;
 }
 
-.subtitle {
-  font-size: 22px;
+.headerHr {
+  width: 100%;
+  height: 1px;
+  background: #96fac8;
+}
+
+.claimContainer {
+  color: white;
+}
+
+.claimDescription {
+  font-size: 18px;
+  padding-bottom: 2rem;
 }
 
 /* credits: https://codepen.io/natalia-reshetnikova/pen/oRRjPP */

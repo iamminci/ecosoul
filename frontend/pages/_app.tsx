@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     styles: {
       global: (props: any) => ({
         body: {
-          fontFamily: "Iowan Old Style",
+          fontFamily: "Inter",
           lineHeight: "base",
         },
       }),

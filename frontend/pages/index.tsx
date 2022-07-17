@@ -15,12 +15,12 @@ const Home: NextPage = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+        transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
       >
         <AspectRatio className={styles.heroVideo}>
           <iframe
             title="naruto"
-            src="https://player.vimeo.com/video/730360975?h=a54f36f84b?background=1&autoplay=1&quality=720p&controls=0&loop=1&muted=1"
+            src="https://player.vimeo.com/video/730360975?h=a54f36f84b?background=1&autoplay=1&quality=720p&controls=0&loop=10&muted=1"
             allowFullScreen
           />
         </AspectRatio>
