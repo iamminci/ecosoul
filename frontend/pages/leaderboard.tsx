@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import styles from "@styles/Leaderboard.module.css";
 import { VStack, HStack, Text, Link, Box, Tooltip } from "@chakra-ui/react";
 import { CheckCircleIcon, ExternalLinkIcon, InfoIcon } from "@chakra-ui/icons";
+import withTransition from "@components/withTransition";
 
 const data = [
   {
@@ -212,4 +213,4 @@ const Leaderboard: NextPage = () => {
   );
 };
 
-export default Leaderboard;
+export default withTransition(Leaderboard);

@@ -9,6 +9,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { useEffect, useState } from "react";
 import Navbar from "@components/Navbar";
+import { AnimatePresence } from "framer-motion";
 
 const { chains, provider } = configureChains(
   [
@@ -55,8 +56,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <Navbar />
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter>
+            <Navbar />
+            <Component {...pageProps} />
+          </AnimatePresence>
         </RainbowKitProvider>
       </WagmiConfig>
     </ChakraProvider>
