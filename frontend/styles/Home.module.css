@@ -24,14 +24,17 @@
 .contentContainer {
   top: 100px;
   position: fixed;
-  height: 100vh;
+  height: calc(100% - 160px);
   width: 100vw;
   z-index: 999;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
-  top: -20px;
+}
+
+.titleContainer {
+  padding: 0 4rem;
 }
 
 .title {
@@ -40,10 +43,6 @@
 
 .subtitle {
   font-size: 22px;
-}
-
-.titleContainer {
-  padding: 0 4rem;
 }
 
 /* credits: https://codepen.io/natalia-reshetnikova/pen/oRRjPP */

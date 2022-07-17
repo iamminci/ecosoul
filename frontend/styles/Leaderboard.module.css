@@ -1,0 +1,48 @@
+.container {
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(4, 14, 47);
+  color: white;
+  padding-top: 150px;
+}
+
+.leaderboardContainer {
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Inter";
+  font-size: 18px;
+}
+
+.headerHr {
+  width: 100%;
+  height: 1px;
+  background: #96fac8;
+}
+
+.leaderboardHeader {
+  padding: 0 2rem;
+  width: 100%;
+  font-size: 20px;
+}
+
+.leaderboardRow {
+  width: 100%;
+  font-size: 18px;
+  padding: 0 2rem;
+}
+
+.leaderboardValue {
+  width: 20rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.infoIcon {
+  width: 1rem !important;
+  height: 1rem !important;
+  cursor: pointer;
+}

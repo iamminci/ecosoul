@@ -36,7 +36,12 @@ const Navbar = () => {
       <div className={styles.navbar}>
         <div className={styles.leftPartition}>
           <Link href="/" passHref>
-            <Image alt="main logo" src="logo.png" className={styles.logo} />
+            <Image
+              alt="main logo"
+              src="logo.png"
+              className={styles.logo}
+              cursor="pointer"
+            />
           </Link>
         </div>
         <div className={styles.rightPartition}>
