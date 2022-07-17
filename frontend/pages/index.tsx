@@ -14,6 +14,7 @@ import {
   Text,
   Box,
   useDisclosure,
+  AspectRatio,
 } from "@chakra-ui/react";
 import { abridgeAddress } from "@utils/abridgeAddress";
 import { generateMerkleProof } from "@utils/generateMerkleProof";
@@ -263,99 +264,82 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <ConnectButton />
-        {isConnecting && <>Connecting…</>}
-      </div>
-      <Spacer h="3rem" />
-      <div>
-        <Text fontSize="2xl">User Panel</Text>
-        {/* <QRCode value={tempUserId}></QRCode> */}
-        <Button onClick={setupNFT}>Setup NFT</Button>
-        {hasMinted && mintTxnResponse && (
-          <VStack>
-            <p style={{ color: "white" }}>
-              Your transaction was sent! Click here to view your transaction:
+      <AspectRatio className={styles.heroVideo}>
+        <iframe
+          title="naruto"
+          src="https://player.vimeo.com/video/730360975?h=a54f36f84b?background=1&autoplay=1&quality=720p&controls=0&loop=1&muted=1"
+          allowFullScreen
+        />
+      </AspectRatio>
+      <div className={styles.contentContainer}>
+        <div>
+          <Text fontSize="2xl">User Panel</Text>
+          {/* <QRCode value={tempUserId}></QRCode> */}
+          <Button onClick={setupNFT}>Setup NFT</Button>
+          {hasMinted && mintTxnResponse && (
+            <VStack>
+              <p style={{ color: "white" }}>
+                Your transaction was sent! Click here to view your transaction:
+              </p>
+              <Link
+                href={`${BLOCK_EXPLORER || "https://goerli.etherscan.io"}/tx/${
+                  mintTxnResponse.hash
+                }`}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  color: "white",
+                  borderRadius: "0",
+                }}
+              >
+                Etherscan: {abridgeAddress(mintTxnResponse.hash)}
+              </Link>
+            </VStack>
+          )}
+          {mintError && (
+            <p style={{ color: "red" }}>
+              Error: {mintError?.message || "Something went wrong"}
             </p>
-            <Link
-              href={`${BLOCK_EXPLORER || "https://goerli.etherscan.io"}/tx/${
-                mintTxnResponse.hash
-              }`}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                color: "white",
-                borderRadius: "0",
-              }}
-            >
-              Etherscan: {abridgeAddress(mintTxnResponse.hash)}
-            </Link>
-          </VStack>
-        )}
-        {mintError && (
+          )}
+        </div>
+        <Spacer h="3rem" />
+        {setBaseURIError && (
           <p style={{ color: "red" }}>
-            Error: {mintError?.message || "Something went wrong"}
+            Error: {setBaseURIError?.message || "Something went wrong"}
           </p>
         )}
+        <>
+          <Button onClick={onOpen}>Open Modal</Button>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Update User Score</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text fontSize="xl" paddingBottom={"10px"}>
+                  How many plastic bags did this user save?
+                </Text>
+                <Select placeholder="Select option">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </Select>
+              </ModalBody>
+              <ModalFooter>
+                <Button variant="solid" mr={3} onClick={onClose}>
+                  Close
+                </Button>
+                <Button
+                  colorScheme="blue"
+                  onClick={() => updateUserScore(scannedUserId, "score1")}
+                >
+                  Approve
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </>
       </div>
-      <Spacer h="3rem" />
-      <div>
-        <Text fontSize="2xl">Admin Panel</Text>
-        <Button onClick={() => updateUserScore(scannedUserId, "score1")}>
-          Increment User Score 1
-        </Button>
-      </div>
-      {setBaseURIError && (
-        <p style={{ color: "red" }}>
-          Error: {setBaseURIError?.message || "Something went wrong"}
-        </p>
-      )}
-      <Box w="500px">
-        <QrReader
-          constraints={{}}
-          onResult={(result, error) => {
-            if (!!result) {
-              setScannedUserId(result?.text);
-            }
-
-            if (!!error) {
-              console.info(error);
-            }
-          }}
-        />
-        <p>{scannedUserId}</p>
-      </Box>
-      <>
-        <Button onClick={onOpen}>Open Modal</Button>
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Update User Score</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Text fontSize="xl" paddingBottom={"10px"}>
-                How many plastic bags did this user save?
-              </Text>
-              <Select placeholder="Select option">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </Select>
-            </ModalBody>
-            <ModalFooter>
-              <Button variant="solid" mr={3} onClick={onClose}>
-                Close
-              </Button>
-              <Button
-                colorScheme="blue"
-                onClick={() => updateUserScore(scannedUserId, "score1")}
-              >
-                Approve
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </>
     </div>
   );
 };

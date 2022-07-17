@@ -8,6 +8,7 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { useEffect, useState } from "react";
+import Navbar from "@components/Navbar";
 
 const { chains, provider } = configureChains(
   [
@@ -60,6 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
+          <Navbar />
           <Component {...pageProps} />
         </RainbowKitProvider>
       </WagmiConfig>
