@@ -5,20 +5,37 @@ import { collection } from "firebase/firestore";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount, useContractRead, useContractWrite } from "wagmi";
 import {
-  useAccount,
-  useContractRead,
-  useContractWrite,
-  useEnsName,
-  useProvider,
-  useSigner,
-} from "wagmi";
-import { Button, VStack, Link, Spacer, Text } from "@chakra-ui/react";
+  Button,
+  VStack,
+  Link,
+  Spacer,
+  Text,
+  Box,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { abridgeAddress } from "@utils/abridgeAddress";
 import { generateMerkleProof } from "@utils/generateMerkleProof";
 import contract from "@data/MyNFT.json";
 import adminList from "@data/adminWallets.json";
 import { ethers } from "ethers";
+
+import { Select } from "@chakra-ui/react";
+
+import { QrReader } from "react-qr-reader";
+
+import QRCode from "react-qr-code";
+
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 
 const md5 = require("md5");
 
@@ -45,16 +62,24 @@ const Home: NextPage = () => {
   const [hasMinted, setHasMinted] = useState(false);
   const [merkleProof, setMerkleProof] = useState([""]);
   const [baseURI, setBaseURI] = useState<string>("");
-
+  const [scannedUserId, setScannedUserId] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   // TODO: use ENS name properly
   // const { data, isError, isLoading } = useEnsName({
   //   address: "0xA0Cf798816D4b9b9866b5330EEa46a18382f251e",
   // });
 
+  useEffect(() => {
+    if (scannedUserId) {
+      onOpen;
+    }
+  }, [scannedUserId]);
+
   const {
     data: lastTokenId,
     isError,
-    isLoading,
+    isLoading: isLoadingLastTokenId,
   } = useContractRead({
     addressOrName: CONTRACT_ADDRESS
       ? CONTRACT_ADDRESS
@@ -170,11 +195,13 @@ const Home: NextPage = () => {
     });
   };
 
-  const tempUserId = md5(
-    "0x4A59253d792fC51d2D37B3616966A3Ba1EA91c76"
-  ).substring(0, 20);
+  // const tempUserId = md5(
+  //   "0x4A59253d792fC51d2D37B3616966A3Ba1EA91c76"
+  // ).substring(0, 20);
 
   const updateUserScore = async (userId: string, scoreType: ScoreType) => {
+    if (isLoading) return;
+    setIsLoading(true);
     try {
       const fetchedUser = await getUser(userId);
       if (!fetchedUser) {
@@ -243,6 +270,7 @@ const Home: NextPage = () => {
       <Spacer h="3rem" />
       <div>
         <Text fontSize="2xl">User Panel</Text>
+        {/* <QRCode value={tempUserId}></QRCode> */}
         <Button onClick={setupNFT}>Setup NFT</Button>
         {hasMinted && mintTxnResponse && (
           <VStack>
@@ -273,7 +301,7 @@ const Home: NextPage = () => {
       <Spacer h="3rem" />
       <div>
         <Text fontSize="2xl">Admin Panel</Text>
-        <Button onClick={() => updateUserScore(tempUserId, "score1")}>
+        <Button onClick={() => updateUserScore(scannedUserId, "score1")}>
           Increment User Score 1
         </Button>
       </div>
@@ -282,6 +310,52 @@ const Home: NextPage = () => {
           Error: {setBaseURIError?.message || "Something went wrong"}
         </p>
       )}
+      <Box w="500px">
+        <QrReader
+          constraints={{}}
+          onResult={(result, error) => {
+            if (!!result) {
+              setScannedUserId(result?.text);
+            }
+
+            if (!!error) {
+              console.info(error);
+            }
+          }}
+        />
+        <p>{scannedUserId}</p>
+      </Box>
+      <>
+        <Button onClick={onOpen}>Open Modal</Button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Update User Score</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text fontSize="xl" paddingBottom={"10px"}>
+                How many plastic bags did this user save?
+              </Text>
+              <Select placeholder="Select option">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </Select>
+            </ModalBody>
+            <ModalFooter>
+              <Button variant="solid" mr={3} onClick={onClose}>
+                Close
+              </Button>
+              <Button
+                colorScheme="blue"
+                onClick={() => updateUserScore(scannedUserId, "score1")}
+              >
+                Approve
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </>
     </div>
   );
 };

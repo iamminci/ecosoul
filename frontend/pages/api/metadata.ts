@@ -39,7 +39,7 @@ export default async function handler(
     };
 
     const newUser = req.body;
-    const { tokenId } = newUser;
+    const { score1, tokenId } = newUser;
 
     try {
       // TODO: replace with dynamically rendered canvas image based on traits
@@ -51,6 +51,7 @@ export default async function handler(
       const fileData = await fs.readFileSync(userMetadataPath);
       const json = JSON.parse(fileData.toString());
       json.image_url = imageUrl;
+      json.score = score1;
       const newJson = JSON.stringify(json);
 
       await fs.writeFileSync(userMetadataPath, newJson);

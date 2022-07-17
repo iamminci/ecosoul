@@ -1,0 +1,1087 @@
+{
+  "f0707721": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0111343": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01045784": {
+    "ba": "NYISO_NYC",
+    "freq": "300",
+    "percent": "24",
+    "moer": "930",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02613": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0116436": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01139232": {
+    "ba": "CAISO_NORTH",
+    "freq": "300",
+    "percent": "74",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0116445": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f010088": {
+    "ba": "PSEI",
+    "freq": "300",
+    "percent": "78",
+    "moer": "1216",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f010035": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0118317": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0107536": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01207045": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01024814": {
+    "ba": "PACE",
+    "freq": "300",
+    "percent": "38",
+    "moer": "1432",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01016255": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0126097": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f010362": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f01278": {
+    "ba": "MISO_GRAND_RAPIDS",
+    "freq": "300",
+    "percent": "58",
+    "moer": "1620",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0145249": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f02528": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01439693": {
+    "ba": "PL",
+    "freq": "300",
+    "percent": "86",
+    "moer": "2143",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f010490": {
+    "ba": "SCL",
+    "freq": "300",
+    "percent": "54",
+    "moer": "933",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f023651": {
+    "ba": "ES",
+    "freq": "300",
+    "percent": "26",
+    "moer": "769",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f0410001": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0715639": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f047419": {
+    "ba": "MISO_MADISON",
+    "freq": "300",
+    "percent": "58",
+    "moer": "1620",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f022125": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01127678": {
+    "ba": "PL",
+    "freq": "300",
+    "percent": "86",
+    "moer": "2143",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f03325": {
+    "ba": "CAISO_NORTH",
+    "freq": "300",
+    "percent": "74",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01138034": {
+    "ba": "NEM_NSW",
+    "freq": "300",
+    "percent": "1",
+    "moer": "1080",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0763337": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0728347": {
+    "ba": "NYISO_NYC",
+    "freq": "300",
+    "percent": "24",
+    "moer": "930",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0720636": {
+    "ba": "BE",
+    "freq": "300",
+    "percent": "30",
+    "moer": "746",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f023530": {
+    "ba": "PJM_DC",
+    "freq": "300",
+    "percent": "35",
+    "moer": "1295",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02576": {
+    "ba": "DK",
+    "freq": "300",
+    "percent": "10",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f019100": {
+    "ba": "RO",
+    "freq": "300",
+    "percent": "96",
+    "moer": "1356",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f017215": {
+    "ba": "SPP_KC",
+    "freq": "300",
+    "percent": "60",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01051828": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02775": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0131767": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f02620": {
+    "ba": "PL",
+    "freq": "300",
+    "percent": "86",
+    "moer": "2143",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f02529": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0673920": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0116095": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01345523": {
+    "ba": "BE",
+    "freq": "300",
+    "percent": "30",
+    "moer": "746",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f020604": {
+    "ba": "DK",
+    "freq": "300",
+    "percent": "10",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0133505": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f062353": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0111384": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01392893": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0393016": {
+    "ba": "MISO_WORTHINGTON",
+    "freq": "300",
+    "percent": "55",
+    "moer": "1620",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f03306": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0466405": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f022142": {
+    "ba": "NYISO_NYC",
+    "freq": "300",
+    "percent": "24",
+    "moer": "930",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f024137": {
+    "ba": "SK",
+    "freq": "300",
+    "percent": "1",
+    "moer": "1256",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f088125": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f019551": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0508328": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0149455": {
+    "ba": "MISO_INDIANAPOLIS",
+    "freq": "300",
+    "percent": "58",
+    "moer": "1620",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02303": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f066596": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0112027": {
+    "ba": "FR",
+    "freq": "300",
+    "percent": "12",
+    "moer": "501",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f018517": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0133957": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01201327": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01199442": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f019218": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0144547": {
+    "ba": "IE",
+    "freq": "300",
+    "percent": "4",
+    "moer": "843",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f019029": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f058374": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f070337": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f019824": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02610": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01473510": {
+    "ba": "PL",
+    "freq": "300",
+    "percent": "86",
+    "moer": "2143",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0151034": {
+    "ba": "PACE",
+    "freq": "300",
+    "percent": "38",
+    "moer": "1432",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f017193": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f020940": {
+    "ba": "SCL",
+    "freq": "300",
+    "percent": "54",
+    "moer": "933",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f03176": {
+    "ba": "CAISO_NORTH",
+    "freq": "300",
+    "percent": "74",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01310564": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0873601": {
+    "ba": "RO",
+    "freq": "300",
+    "percent": "96",
+    "moer": "1356",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f01234": {
+    "ba": "BE",
+    "freq": "300",
+    "percent": "30",
+    "moer": "746",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f081323": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f022352": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0717969": {
+    "ba": "CAISO_LONGBEACH",
+    "freq": "300",
+    "percent": "71",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f094847": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01094602": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0869590": {
+    "ba": "PACE",
+    "freq": "300",
+    "percent": "38",
+    "moer": "1432",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f063869": {
+    "ba": "IE",
+    "freq": "300",
+    "percent": "4",
+    "moer": "843",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0113664": {
+    "ba": "FR",
+    "freq": "300",
+    "percent": "12",
+    "moer": "501",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0402661": {
+    "ba": "BPA",
+    "freq": "300",
+    "percent": "54",
+    "moer": "928",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02403": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02665": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f08403": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0838893": {
+    "ba": "CAISO_NORTH",
+    "freq": "300",
+    "percent": "74",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02301": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02609": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f09091": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0396452": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0727067": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f09729": {
+    "ba": "PJM_NJ",
+    "freq": "300",
+    "percent": "35",
+    "moer": "1295",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f08497": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f023467": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f014365": {
+    "ba": "NEM_NSW",
+    "freq": "300",
+    "percent": "1",
+    "moer": "1080",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0407733": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f030296": {
+    "ba": "RO",
+    "freq": "300",
+    "percent": "96",
+    "moer": "1356",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f0501283": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f098770": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f034545": {
+    "ba": "ES",
+    "freq": "300",
+    "percent": "26",
+    "moer": "769",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f01199430": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0855584": {
+    "ba": "SPP_WESTNE",
+    "freq": "300",
+    "percent": "67",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f019317": {
+    "ba": "HQ",
+    "freq": "300",
+    "percent": "36",
+    "moer": "1012",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0114687": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f094128": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01175097": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02490": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01159754": {
+    "ba": "LDWP",
+    "freq": "300",
+    "percent": "72",
+    "moer": "1159",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0392959": {
+    "ba": "CAISO_NORTH",
+    "freq": "300",
+    "percent": "74",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f096943": {
+    "ba": "IE",
+    "freq": "300",
+    "percent": "4",
+    "moer": "843",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f010446": {
+    "ba": "BE",
+    "freq": "300",
+    "percent": "30",
+    "moer": "746",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f02770": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0401135": {
+    "ba": "FI",
+    "freq": "300",
+    "percent": "8",
+    "moer": "1068",
+    "point_time": "2022-07-16T12:00:00Z"
+  },
+  "f0429063": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0127595": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0678914": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01240": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f015942": {
+    "ba": "IESO_NORTH",
+    "freq": "300",
+    "percent": "42",
+    "moer": "1047",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f082356": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f01208862": {
+    "ba": "NL",
+    "freq": "300",
+    "percent": "67",
+    "moer": "941",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0444122": {
+    "ba": "RO",
+    "freq": "300",
+    "percent": "96",
+    "moer": "1356",
+    "point_time": "2022-07-16T12:45:00Z"
+  },
+  "f0432570": {
+    "ba": "BPA",
+    "freq": "300",
+    "percent": "54",
+    "moer": "928",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0149937": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f089180": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0875769": {
+    "ba": "PACE",
+    "freq": "300",
+    "percent": "38",
+    "moer": "1432",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f024483": {
+    "ba": "WEM",
+    "freq": "300",
+    "percent": "80",
+    "moer": "1521",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f03223": {
+    "ba": "PJM_NJ",
+    "freq": "300",
+    "percent": "35",
+    "moer": "1295",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f014348": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f019104": {
+    "ba": "HQ",
+    "freq": "300",
+    "percent": "36",
+    "moer": "1012",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f021418": {
+    "ba": "NEM_NSW",
+    "freq": "300",
+    "percent": "1",
+    "moer": "1080",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f03327": {
+    "ba": "SCL",
+    "freq": "300",
+    "percent": "54",
+    "moer": "933",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f020648": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0137168": {
+    "ba": "SPP_KANSAS",
+    "freq": "300",
+    "percent": "71",
+    "moer": "1473",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0154597": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f089358": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f022250": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0494174": {
+    "ba": "NO",
+    "freq": "300",
+    "percent": "3",
+    "moer": "1097",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f019515": {
+    "ba": "RS",
+    "freq": "300",
+    "percent": "98",
+    "moer": "1882",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f0688165": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f092516": {
+    "ba": "BPA",
+    "freq": "300",
+    "percent": "54",
+    "moer": "928",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0440182": {
+    "ba": "BPA",
+    "freq": "300",
+    "percent": "54",
+    "moer": "928",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f01193812": {
+    "ba": "BPA",
+    "freq": "300",
+    "percent": "54",
+    "moer": "928",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f0828066": {
+    "ba": "CAISO_SANDIEGO",
+    "freq": "300",
+    "percent": "71",
+    "moer": "926",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f010479": {
+    "ba": "FR",
+    "freq": "300",
+    "percent": "12",
+    "moer": "501",
+    "point_time": "2022-07-16T11:00:00Z"
+  },
+  "f03519": {
+    "ba": "SCL",
+    "freq": "300",
+    "percent": "54",
+    "moer": "933",
+    "point_time": "2022-07-16T13:15:00Z"
+  },
+  "f02520": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0128559": {
+    "ba": "DE",
+    "freq": "300",
+    "percent": "0",
+    "moer": "1240",
+    "point_time": "2022-07-16T12:15:00Z"
+  },
+  "f0694396": {
+    "ba": "UK",
+    "freq": "300",
+    "percent": "15",
+    "moer": "886",
+    "point_time": "2022-07-16T13:15:00Z"
+  }
+}

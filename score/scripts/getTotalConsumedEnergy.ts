@@ -97,8 +97,9 @@ export async function getTotalConsumedEnergy(minerId: string) {
 }
 
 export const defaultStartTime = new Date("2020-07-01").getTime(); // some hard coded value from Alan's data
-// get cumulative energy usage upper bound for given miner of minerId
-export async function getMinerTimePeriod(
+
+// get the start, end time for a miner's total operation in milliseconds
+export async function getMinerOperationTime(
   minerId: string
 ): Promise<[number, number]> {
   const allCumulativeEnergyEpochs = await getAllEpochs(
@@ -108,6 +109,7 @@ export async function getMinerTimePeriod(
 
   let startTime = 0;
 
+  // find the first epoch with energy use > 0
   for (let i = 0; i < allCumulativeEnergyEpochs.length; i++) {
     const epoch = allCumulativeEnergyEpochs[i] as any;
     if (Number(epoch.energy_use_kW_estimate) > 0) {
@@ -116,6 +118,7 @@ export async function getMinerTimePeriod(
     }
   }
 
+  // if no epoch with energy use > 0, use default start time
   startTime = startTime ? startTime : defaultStartTime;
 
   const finalEpochIdx = allCumulativeEnergyEpochs.length - 1;
@@ -125,7 +128,6 @@ export async function getMinerTimePeriod(
   // const startTime = new Date(startTimestamp).getTime();
   const endTime = new Date(endTimestamp).getTime();
 
-  // console.log("miner: ", minerId, " has start time: ", startTime);
   return [startTime, endTime];
 }
 

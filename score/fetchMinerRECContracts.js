@@ -7,7 +7,7 @@ function fetchMinerRECContracts() {
   const miners = JSON.parse(file);
 
   // TODO: remove 20 hard-coded miners
-  miners.slice(0, 100).forEach(({ id: minerId }) => {
+  [{ id: "f01234" }].forEach(({ id: minerId }) => {
     axios
       .get(
         `https://proofs-api.zerolabs.green/api/partners/filecoin/nodes/${minerId}/contracts`

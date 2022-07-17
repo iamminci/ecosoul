@@ -2,11 +2,10 @@
 // f0101570 has 2 contracts (one six month, one two month long)
 // f010088 has 1 contract (one year long)
 
+// depending on gaps, should result in a pretty clear ranking
 import axios from "axios";
 import { Contract } from "./getAccountingScore";
-import { getMinerTimePeriod } from "./getTotalConsumedEnergy";
-
-// depending on gaps, should result in a pretty clear ranking
+import { getMinerOperationTime } from "./getTotalConsumedEnergy";
 
 type MinerContractReportingPeriod = {
   id: string;
@@ -15,13 +14,14 @@ type MinerContractReportingPeriod = {
   period: number;
 };
 
-async function getTime(minerId: string) {
-  const [startTime, endTime] = await getMinerTimePeriod(minerId);
+async function getOperationTime(minerId: string) {
+  const [startTime, endTime] = await getMinerOperationTime(minerId);
+  // find miner operation time period in days
   const minerPeriod = (endTime - startTime) / (1000 * 60 * 60 * 24);
   return [startTime, endTime, minerPeriod];
 }
 
-// fetch total available (unredeemed) REC purchased energy in MWh for given miner of minerId
+//
 async function getMinerReportingPeriods(
   minerId: string
 ): Promise<[MinerContractReportingPeriod[], number]> {
@@ -30,19 +30,27 @@ async function getMinerReportingPeriods(
   const availableRECData = await axios.get(url);
   const availableRECDataContracts = availableRECData.data.contracts;
 
-  const [startTime, _, minerPeriod] = await getTime(minerId);
+  const [startTime, _, minerPeriod] = await getOperationTime(minerId);
 
   let accumulatedReportingTime = 0;
 
+  const alreadyReported = new Set();
   const minerReportingPeriods: MinerContractReportingPeriod[] =
     availableRECDataContracts.map((contract: Contract) => {
       let reportingStartTime = new Date(contract.reportingStart).getTime();
 
+      // if there is a reporting period that starts before the miner's operation, use operation start time
       if (reportingStartTime < startTime) reportingStartTime = startTime;
 
       const reportingEndTime = new Date(contract.reportingEnd).getTime();
+
+      // reporting period in days
       const reportingPeriod =
         (reportingEndTime - reportingStartTime) / (1000 * 60 * 60 * 24);
+
+      const reportingPeriodID = `${reportingStartTime}-${reportingEndTime}`;
+
+      if (alreadyReported.has(reportingPeriodID)) return {};
 
       const newReportingPeriod: MinerContractReportingPeriod = {
         id: minerId,
@@ -53,61 +61,48 @@ async function getMinerReportingPeriods(
 
       accumulatedReportingTime += reportingPeriod;
 
+      alreadyReported.add(reportingPeriodID);
+
       return newReportingPeriod;
     });
 
+  // find gap time
   const accumulatedGapTime = minerPeriod - accumulatedReportingTime;
 
-  console.log("minerId: ", minerId);
-  console.log("startTime: ", startTime);
-  console.log("miningHistory: ", minerPeriod);
-  console.log("accumulatedReportingTime: ", accumulatedReportingTime);
-  console.log("accumulatedGapTime: ", accumulatedGapTime);
+  //   console.log("minerId: ", minerId);
+  //   console.log("startTime: ", startTime);
+  //   console.log("miningHistory: ", minerPeriod);
+  //   console.log("accumulatedReportingTime: ", accumulatedReportingTime);
+  //   console.log("accumulatedGapTime: ", accumulatedGapTime);
 
   return [minerReportingPeriods, accumulatedGapTime];
 }
 
-async function calculateAccountingScore(minerId: string) {
+// calculate accounting granularity score with periods weighted by their duration, shorter the larger weights
+export async function calculateGranularityScore(minerId: string) {
   const [reportingPeriods, gapTime] = await getMinerReportingPeriods(minerId);
   let score = 0;
-  reportingPeriods.forEach(({ startTime, endTime, period }) => {
-    score += getWeight(period) * period;
+
+  // console.log("reportingPeriods: ", reportingPeriods);
+
+  reportingPeriods.forEach(({ period }) => {
+    if (period) {
+      score += getWeight(period) * period;
+    }
   });
-  score -= 0.1 * gapTime;
-  console.log("score: ", score);
+
+  // score -= 0.05 * gapTime;
+  // console.log("score: ", score);
   return score;
 }
 
 function getWeight(period: number) {
-  const quarterlyWeight = 0.5;
-  const halfWeight = 0.4;
-  const annualWeight = 0.3;
-  const bimonthlyWeight = 0.6;
-  const monthlyWeight = 0.65;
-
   return 0.6966 * Math.exp(-1 * 0.0023 * period);
-  //   if (period > 28 && period < 32) {
-  //     return monthlyWeight;
-  //   } else if (period > 58 && period < 62) {
-  //     return bimonthlyWeight;
-  //   } else if (period > 88 && period < 92) {
-  //     return quarterlyWeight;
-  //   } else if (period > 178 && period < 182) {
-  //     return halfWeight;
-  //   } else if (period > 363 && period < 367) {
-  //     return annualWeight;
-  //   } else {
-  //     console.log("werid period: ", period);
-  //     throw new Error("broken period!");
-  //   }
 }
 
-// getMinerReportingPeriods("f010528");
-// getMinerReportingPeriods("f0101570");
-// getMinerReportingPeriods("f010088");
-calculateAccountingScore("f010528");
-calculateAccountingScore("f0101570");
-calculateAccountingScore("f010088");
+calculateGranularityScore("f01320931");
+// calculateAccountingScore("f0101570");
+// calculateAccountingScore("f010088");
 
 // data for f010528
 //       // 12 months

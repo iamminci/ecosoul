@@ -1,18 +1,16 @@
+import axios from "axios";
 import fs from "fs";
 import { getTotalConsumedEnergy } from "./getTotalConsumedEnergy";
 import { getTotalRenewableEnergy } from "./getTotalRenewableEnergy";
 
-async function calculateRenewableEnergyRatio(minerId: string): Promise<number> {
+export async function calculateRenewableEnergyRatio(
+  minerId: string
+): Promise<number> {
   const totalConsumedEnergy = await getTotalConsumedEnergy(minerId);
-  // console.log("totalConsumedEnergy: ", totalConsumedEnergy);
   const totalRenewableEnergy = await getTotalRenewableEnergy(minerId);
-  // console.log("totalRenewableEnergy: ", totalRenewableEnergy);
   const renewableEnergyRatio = totalRenewableEnergy / totalConsumedEnergy;
-  //   console.log("JM renewableEnergyRatio: ", renewableEnergyRatio);
   return renewableEnergyRatio;
 }
-
-import axios from "axios";
 
 async function fetchSingleMiner(minerId: string) {
   const ratio = await calculateRenewableEnergyRatio(minerId);
@@ -49,13 +47,13 @@ async function writeFile() {
   fs.writeFileSync(`./ratioData500.json`, JSON.stringify(minerMap));
 }
 
-if (require.main === module) {
-  writeFile();
-  // fetchSingleMiner("f010490");
-}
+// if (require.main === module) {
+// writeFile();
+// fetchSingleMiner("f010490");
+// }
 
 // if (require.main === module) {
 //     calculateRenewableEnergyRatio("f01051178");
 //   }
 
-module.exports = { fetchMinerRECList };
+// module.exports = { fetchMinerRECList };
