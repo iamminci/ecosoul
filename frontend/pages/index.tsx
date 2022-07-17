@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       </motion.div>
       <div className={styles.contentContainer}>
         <div className={styles.titleContainer}>
-          <div className={styles.title}>Welcome to EcoSoul,</div>
+          <div className={styles.title}>Welcome to EcoSoul</div>
           <div className={styles.subtitle}>
             Community hub for eco-friendly Filecoin Network Storage Providers
           </div>

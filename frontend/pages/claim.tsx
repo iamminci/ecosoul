@@ -8,12 +8,21 @@ import {
   Box,
   useDisclosure,
   AspectRatio,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Input,
 } from "@chakra-ui/react";
 import styles from "@styles/Claim.module.css";
 import { useState } from "react";
 import { abridgeAddress } from "@utils/abridgeAddress";
 import { useContractWrite } from "wagmi";
 import withTransition from "@components/withTransition";
+import { CheckCircleIcon, CheckIcon, CopyIcon } from "@chakra-ui/icons";
 
 const Claim: NextPage = () => {
   const [hasMinted, setHasMinted] = useState(false);
@@ -23,6 +32,15 @@ const Claim: NextPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  function handleClickCopyIcon() {
+    setIsCopied(true);
+    navigator.clipboard.writeText("booboobies");
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1000);
+  }
   //   const {
   //     data: lastTokenId,
   //     isError,
@@ -202,6 +220,8 @@ const Claim: NextPage = () => {
   //     await transaction.wait();
   //   }
 
+  const isVerified = false;
+
   return (
     <>
       <div className={styles.container}>
@@ -213,16 +233,79 @@ const Claim: NextPage = () => {
             </Text>
             <Box className={styles.headerHr} />
           </VStack>
-          <VStack className={styles.claimContainer}>
-            <Text className={styles.claimDescription}>
-              Join the community of eco-friendly FIL Storage Providers by
-              minting the EcoSoul-bound token and sharing with the world.
-            </Text>
-            <button className={styles.btn} onClick={onOpen}>
-              Claim Your NFT
-            </button>
-          </VStack>
+          {isVerified ? (
+            <VStack className={styles.claimContainer}>
+              <Text className={styles.claimDescription}>
+                Join the community of eco-friendly FIL Storage Providers by
+                minting the EcoSoul-bound token and sharing with the world.
+              </Text>
+              <button className={styles.btn} onClick={onOpen}>
+                Claim Your NFT
+              </button>
+            </VStack>
+          ) : (
+            <VStack className={styles.claimContainer}>
+              <Text className={styles.claimDescription}>
+                We have not been able to identify a storage provider ID under
+                your account. Please verify your identity as a storage provider
+                in order to claim your NFT.
+              </Text>
+              <button className={styles.btn} onClick={onOpen}>
+                Verify SP Identity
+              </button>
+            </VStack>
+          )}
         </VStack>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay className={styles.modalOverlay} />
+          <ModalContent className={styles.modalContent}>
+            <VStack className={styles.modalContentContainer}>
+              <ModalHeader color="white" fontSize="24px">
+                Signature Verification
+              </ModalHeader>
+              <ModalCloseButton color="white" />
+              <ModalBody className={styles.modalBody}>
+                <Text>Storage Provider ID: f01234</Text>
+                <Box h="2rem" />
+                <Text>Worker Address: f3qc...ovpa</Text>
+                <Box h="2rem" />
+                <Text>
+                  Message: Signing message for f01234 on EcoSoul at 2022-07-17
+                  01:27:45{" "}
+                </Text>
+                <Box h="2rem" />
+                <Text>Sign code</Text>
+                <Box h=".7rem" />
+                <Box className={styles.signCodeBox}>
+                  <Text>
+                    lotus wallet sign
+                    f3qcsrasb3biiwqv26l5wavmu7wutohuaf66wtmqf2ryvj7zyshjokjvn5uuzxr7fdgjydffrshznvwa3movpa
+                    5369676e696e672
+                  </Text>
+                  {!isCopied ? (
+                    <CopyIcon
+                      className={styles.copyIcon}
+                      onClick={handleClickCopyIcon}
+                    />
+                  ) : (
+                    <CheckIcon className={styles.checkIcon} />
+                  )}
+                </Box>
+                <Box h="2rem" />
+                <Text>Signature: </Text>
+                <Box h=".7rem" />
+                <Input
+                  placeholder="Please copy the sign code , sign it with your Filecoin Wallet, and enter the signature."
+                  className={styles.input}
+                />
+              </ModalBody>
+              <Box h="2rem" />
+              <button className={styles.btn} onClick={onOpen}>
+                Verify SP Identity
+              </button>
+            </VStack>
+          </ModalContent>
+        </Modal>
 
         {/* <Button onClick={setupNFT}>Setup NFT</Button> */}
         {/* {hasMinted && mintTxnResponse && (
