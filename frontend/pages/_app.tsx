@@ -44,21 +44,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     styles: {
       global: (props: any) => ({
         body: {
-          fontFamily: "Inter",
+          fontFamily: "Iowan Old Style",
           lineHeight: "base",
         },
       }),
     },
-    // colors: {
-    //   brand: {
-    //     100: "#f7fafc",
-    //     900: "#1a202c",
-    //   },
-    // },
   });
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
           <Navbar />
