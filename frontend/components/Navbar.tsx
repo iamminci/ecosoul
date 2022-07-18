@@ -11,25 +11,35 @@ import {
   useDisclosure,
   Image,
   Box,
+  Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "../styles/Navbar.module.css";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {
+  connectWallet,
+  contractCreationFunction,
+  contractSigningFunction,
+} from "../components/ConnectWallet";
+import { useState } from "react";
+import { abridgeAddress } from "@utils/abridgeAddress";
+import { useEffect } from "react";
 
-const FaOpensea = () => (
-  <Box
-    width="48px"
-    height="48px"
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
-  >
-    <Image width="18px" height="18px" src="assets/opensea.png" />
-  </Box>
-);
+const ACCOUNT_ID = process.env.NEXT_PUBLIC_ACCOUNT_ID ?? "0.0.47565504";
 
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [address, setAddress] = useState("");
+  const [saved, setSaved] = useState<any>({});
+
+  async function handleConnectHashPack() {
+    const saveData = await connectWallet();
+    setSaved(saveData);
+    console.log("saveData: ", saveData);
+    setTimeout(() => {
+      const account: string | null = localStorage.getItem("pairedAccounts");
+      if (account) setAddress(account);
+      console.log("address set!");
+    }, 5000);
+  }
 
   return (
     <div className={styles.background}>
@@ -46,7 +56,13 @@ const Navbar = () => {
         </div>
         <div className={styles.rightPartition}>
           <Box className={styles.connectBtn}>
-            <ConnectButton />
+            {address ? (
+              <Text>Connected Address: {address}</Text>
+            ) : (
+              <button onClick={handleConnectHashPack}>
+                Connect to HashPack
+              </button>
+            )}
           </Box>
           <Link href="/claim" passHref>
             <button className={styles.button}>Claim NFT</button>
@@ -55,35 +71,6 @@ const Navbar = () => {
             <button className={styles.button}>Leaderboard</button>
           </Link>
         </div>
-        {/* <div className={styles.mobilePartition}>
-          <IconButton
-            aria-label="hamburger menu icon"
-            icon={<HamburgerIcon />}
-            colorScheme="white"
-            onClick={onOpen}
-          />
-        </div> */}
-        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-          <DrawerOverlay />
-          <DrawerContent background="black">
-            <DrawerCloseButton />
-            <DrawerBody>
-              <Stack marginTop="20" spacing="24px">
-                <Link href="/" passHref>
-                  <button className={styles.button} onClick={onClose}>
-                    Home
-                  </button>
-                </Link>
-                <Link href="/viewer" passHref>
-                  <button className={styles.button} onClick={onClose}>
-                    Explorer
-                  </button>
-                </Link>
-                <ConnectButton />
-              </Stack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
       </div>
     </div>
   );

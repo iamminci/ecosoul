@@ -25,8 +25,7 @@ import { useContractRead, useContractWrite } from "wagmi";
 import withTransition from "@components/withTransition";
 import { CheckIcon, CopyIcon } from "@chakra-ui/icons";
 import contract from "@data/EcoSoul.json";
-import { doc, getDoc } from "firebase/firestore";
-import db from "firebase/clientApp";
+import { contractSigningFunction } from "@components/ConnectWallet";
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 const BLOCK_EXPLORER = process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL;
@@ -161,13 +160,13 @@ const Claim: NextPage = () => {
   //     });
   //   };
 
-  useEffect(() => {
-    async function hello() {
-      const response = await fetch("/api/createNFT");
-      console.log("response: ", response);
-    }
-    hello();
-  }, []);
+  // useEffect(() => {
+  //   async function hello() {
+  //     const response = await fetch("/api/createNFT");
+  //     console.log("response: ", response);
+  //   }
+  //   hello();
+  // }, []);
 
   const updateBaseURI = async (minerId: string, tokenId: number) => {
     if (isLoading) return;
@@ -250,10 +249,17 @@ const Claim: NextPage = () => {
                 Join the community of eco-friendly FIL Storage Providers by
                 minting the EcoSoul-bound token and sharing with the world.
               </Text>
-              <button className={styles.btn} onClick={setupNFT}>
+              <button
+                className={styles.btn}
+                onClick={() =>
+                  contractSigningFunction(
+                    "Qmaj8NzutY8U8rJbL5JiQvqmfnzcoYzN4Fe4tUWUZvmxdY"
+                  )
+                }
+              >
                 Claim Your NFT
               </button>
-              {mintTxnRespons2 && (
+              {mintTxnResponse && (
                 <VStack paddingTop="1rem">
                   <p style={{ color: "white" }}>
                     Your transaction was sent! Click here to view your
