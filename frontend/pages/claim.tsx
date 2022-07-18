@@ -29,6 +29,7 @@ import { doc, getDoc } from "firebase/firestore";
 import db from "firebase/clientApp";
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+const BLOCK_EXPLORER = process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL;
 
 const Claim: NextPage = () => {
   const [hasMinted, setHasMinted] = useState(false);
@@ -252,6 +253,27 @@ const Claim: NextPage = () => {
               <button className={styles.btn} onClick={setupNFT}>
                 Claim Your NFT
               </button>
+              {mintTxnRespons2 && (
+                <VStack paddingTop="1rem">
+                  <p style={{ color: "white" }}>
+                    Your transaction was sent! Click here to view your
+                    transaction:
+                  </p>
+                  <Link
+                    href={`${
+                      BLOCK_EXPLORER || "https://rinkeby.etherscan.io"
+                    }/tx/${mintTxnResponse.hash}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      color: "white",
+                      borderRadius: "0",
+                    }}
+                  >
+                    Etherscan: {abridgeAddress(mintTxnResponse.hash)}
+                  </Link>
+                </VStack>
+              )}
             </VStack>
           ) : (
             <VStack className={styles.claimContainer}>
