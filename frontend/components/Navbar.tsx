@@ -45,10 +45,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={styles.rightPartition}>
-          <ConnectButton />
-          <Link href="/about" passHref>
-            <button className={styles.button}>About</button>
-          </Link>
+          <Box className={styles.connectBtn}>
+            <ConnectButton />
+          </Box>
           <Link href="/claim" passHref>
             <button className={styles.button}>Claim NFT</button>
           </Link>

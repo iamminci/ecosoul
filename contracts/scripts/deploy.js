@@ -2,24 +2,24 @@ const hre = require("hardhat");
 const fs = require("fs");
 
 async function main() {
-  const MyNFT = await hre.ethers.getContractFactory("MyNFT");
+  const EcoSoul = await hre.ethers.getContractFactory("EcoSoul");
 
-  const deployedContract = await MyNFT.deploy();
+  const deployedContract = await EcoSoul.deploy();
 
   await deployedContract.deployed();
 
-  console.log("MyNFT deployed to:", deployedContract.address);
+  console.log("EcoSoul deployed to:", deployedContract.address);
 
   fs.copyFile(
-    "artifacts/contracts/nft.sol/MyNFT.json",
-    "../frontend/data/MyNFT.json",
+    "artifacts/contracts/nft.sol/EcoSoul.json",
+    "../frontend/data/EcoSoul.json",
     (err) => {
       if (err) {
         console.log("Error Found:", err);
       } else {
         console.log(
           "\nCopied ABI file:",
-          fs.readFileSync("../frontend/data/MyNFT.json", "utf8")
+          fs.readFileSync("../frontend/data/EcoSoul.json", "utf8")
         );
       }
     }

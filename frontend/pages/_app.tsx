@@ -3,12 +3,18 @@ import type { AppProps } from "next/app";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+  Theme,
+  darkTheme,
+} from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { useEffect, useState } from "react";
 import Navbar from "@components/Navbar";
+import merge from "lodash.merge";
 import { AnimatePresence } from "framer-motion";
 
 const { chains, provider } = configureChains(
@@ -34,6 +40,12 @@ const wagmiClient = createClient({
   provider,
 });
 
+const customTheme = merge(darkTheme(), {
+  colors: {
+    accentColor: "#040e2f",
+  },
+} as Theme);
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -55,7 +67,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains}>
+        <RainbowKitProvider chains={chains} theme={customTheme}>
           <AnimatePresence exitBeforeEnter>
             <Navbar />
             <Component {...pageProps} key={router.route} />

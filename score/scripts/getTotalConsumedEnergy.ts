@@ -20,12 +20,16 @@ async function getAllEpochs(
 
   // run a loop to exhaust epochs fetching limited number at a time due to API limit
   do {
-    const url = `https://api.filecoin.energy/models/export?code_name=${modelCodeName}&limit=${limit}&offset=${offset}&start=${startDate}&miner=${minerId}`;
-    const energyData = await axios.get(url);
-    const energyEpochs: Epoch[] = energyData.data.data;
-    allEnergyEpochs.push(...energyEpochs);
-    isLastEpoch = energyEpochs.length < limit;
-    offset += energyEpochs.length;
+    try {
+      const url = `https://api.filecoin.energy/models/export?code_name=${modelCodeName}&limit=${limit}&offset=${offset}&start=${startDate}&miner=${minerId}`;
+      const energyData = await axios.get(url);
+      const energyEpochs: Epoch[] = energyData.data.data;
+      allEnergyEpochs.push(...energyEpochs);
+      isLastEpoch = energyEpochs.length < limit;
+      offset += energyEpochs.length;
+    } catch (err) {
+      continue;
+    }
   } while (!isLastEpoch);
 
   return allEnergyEpochs;
@@ -92,7 +96,6 @@ export async function getTotalConsumedEnergy(minerId: string) {
   const cumulativeEnergyUpperBoundMWh = await getCumulativeEnergyUpperBoundMWh(
     minerId
   );
-  // console.log("JM energyConsumed_Upper_MWh: ", cumulativeEnergyUpperBoundMWh);
   return cumulativeEnergyUpperBoundMWh;
 }
 

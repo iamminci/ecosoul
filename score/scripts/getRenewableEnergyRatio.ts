@@ -8,6 +8,7 @@ export async function calculateRenewableEnergyRatio(
 ): Promise<number> {
   const totalConsumedEnergy = await getTotalConsumedEnergy(minerId);
   const totalRenewableEnergy = await getTotalRenewableEnergy(minerId);
+  if (totalRenewableEnergy === 999) return 0;
   const renewableEnergyRatio = totalRenewableEnergy / totalConsumedEnergy;
   return renewableEnergyRatio;
 }

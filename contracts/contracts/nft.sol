@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract MyNFT is ERC721, Ownable, ReentrancyGuard {
+contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
     using Counters for Counters.Counter;
     using Strings for uint256;
 
@@ -23,25 +23,13 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
 
     uint256 public numReservedTokens;
 
-    enum MintState {
-        Inactive,
-        Active
-    }
-
     bytes32 public adminMerkleRoot;
-
-    MintState public mintState = MintState.Inactive;
 
     uint256 public constant MAX_TOTAL_SUPPLY = 5000;
 
-    constructor() ERC721("Plastic Bags NFT", "PBNFT") {}
+    constructor() ERC721("EcoSoul", "ECOSOUL") {}
 
     // ============ ACCESS CONTROL MODIFIERS ============
-    modifier mintActive() {
-        require(mintState == MintState.Active, "Mint is not open");
-        _;
-    }
-
     modifier oneTokenPerWallet() {
         require(
             balanceOf(msg.sender) < 1,
@@ -58,27 +46,20 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
         _;
     }
 
-    modifier isAdmin(bytes32[] calldata merkleProof) {
+    modifier isMiner(bytes32[] calldata merkleProof) {
         require(
             MerkleProof.verify(
                 merkleProof,
                 adminMerkleRoot,
                 keccak256(abi.encodePacked(msg.sender))
             ),
-            "Only admin can call this function"
+            "Only whitelisted miners can mint this token"
         );
         _;
     }
 
     // ============ PUBLIC FUNCTIONS FOR MINTING ============
-    function mint()
-        external
-        payable
-        nonReentrant
-        mintActive
-        canMint
-        oneTokenPerWallet
-    {
+    function mint() external payable nonReentrant canMint oneTokenPerWallet {
         _safeMint(msg.sender, nextTokenId());
     }
 
@@ -119,22 +100,11 @@ contract MyNFT is ERC721, Ownable, ReentrancyGuard {
     }
 
     // ============ OWNER-ONLY ADMIN FUNCTIONS ============
-    function setMintActive() external onlyOwner {
-        mintState = MintState.Active;
-    }
-
-    function setMintInactive() external onlyOwner {
-        mintState = MintState.Inactive;
-    }
-
     function setAdminMerkleRoot(bytes32 merkleRoot) external onlyOwner {
         adminMerkleRoot = merkleRoot;
     }
 
-    function setBaseURI(string memory _baseURI, bytes32[] calldata merkleProof)
-        external
-        isAdmin(merkleProof)
-    {
+    function setBaseURI(string memory _baseURI) external onlyOwner {
         baseURI = _baseURI;
     }
 

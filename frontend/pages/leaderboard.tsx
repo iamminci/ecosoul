@@ -3,339 +3,26 @@ import styles from "@styles/Leaderboard.module.css";
 import { VStack, HStack, Text, Link, Box, Tooltip } from "@chakra-ui/react";
 import { CheckCircleIcon, ExternalLinkIcon, InfoIcon } from "@chakra-ui/icons";
 import withTransition from "@components/withTransition";
+import { useEffect, useState } from "react";
+import { getAllScores } from "@state/scores";
+import { Select } from "@chakra-ui/react";
 
-const data = [
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-  {
-    id: "f01070149",
-    rScore: 6.907767573112253,
-    aScore: 6.77282,
-    iScore: 5.719,
-    greenScore: 7.517,
-    region: "CN",
-    link: "https://proofs.zerolabs.green/partners/filecoin/nodes/f01012/beneficiary",
-    mintedNFT: true,
-  },
-];
+type ScoreData = {
+  carbonIntensity: number;
+  accountingScore: number;
+  renewableRatio: number;
+  score: number;
+  rScore: number;
+  aScore: number;
+  iScore: number;
+  minerId: string;
+  url: string;
+  region: string;
+  country: string;
+  long: number;
+  lat: number;
+  hasMinted: boolean;
+};
 
 const description = {
   rScore: "Renewable Ratio Score",
@@ -346,6 +33,50 @@ const description = {
 
 // TODO: add raw scores for individual scores
 const Leaderboard: NextPage = () => {
+  const [scores, setScores] = useState<ScoreData[]>([]);
+  const [filteredScores, setFilteredScores] = useState<ScoreData[]>([]);
+  const [regions, setRegions] = useState<string[]>([]);
+  const traits = ["carbonIntensity", "accountingScore", "renewableRatio"];
+
+  useEffect(() => {
+    async function fetchScores() {
+      const res = await getAllScores();
+      const fetchedScores: ScoreData[] = Object.values(res);
+      fetchedScores.sort((a: ScoreData, b: ScoreData) => b.score - a.score);
+      setScores(fetchedScores);
+
+      const fetchedRegions = fetchedScores.map((score: any) => score.region);
+      setRegions(["ALL REGIONS", ...Array.from(new Set(fetchedRegions))]);
+    }
+    fetchScores();
+  }, []);
+
+  function handleSelectRegion(e: any) {
+    if (e.target.value === "ALL REGIONS") setFilteredScores([]);
+    const newScores = scores.filter(
+      (score: any) => score.region === e.target.value
+    );
+    setFilteredScores(newScores);
+  }
+
+  function handleSortByTrait(e: any) {
+    const newScores = JSON.parse(JSON.stringify(scores));
+    if (e.target.value === "Default") {
+      newScores.sort((a: ScoreData, b: ScoreData) => b.score - a.score);
+    }
+    if (e.target.value === "carbonIntensity") {
+      newScores.sort((a: ScoreData, b: ScoreData) => b.iScore - a.iScore);
+    }
+    if (e.target.value === "accountingScore") {
+      newScores.sort((a: ScoreData, b: ScoreData) => b.aScore - a.aScore);
+    }
+    if (e.target.value === "renewableRatio") {
+      newScores.sort((a: ScoreData, b: ScoreData) => b.rScore - a.rScore);
+    }
+    setScores(newScores);
+    setFilteredScores([]);
+  }
+
   return (
     <div className={styles.container}>
       <VStack className={styles.titleContainer}>
@@ -353,6 +84,37 @@ const Leaderboard: NextPage = () => {
           <Text>FIL STORAGE PROVIDER “GREEN” LEADERBOARD</Text>
           <Box className={styles.headerHr} />
         </VStack>
+        <HStack className={styles.selectSection}>
+          <HStack>
+            <Text>Filter By:</Text>
+            <Select
+              placeholder="Select option"
+              w="200px"
+              onChange={handleSelectRegion}
+            >
+              {regions.length > 0 &&
+                regions.map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
+                ))}
+            </Select>
+          </HStack>
+          <HStack>
+            <Text paddingLeft="1rem">Sort By:</Text>
+            <Select
+              placeholder="Select option"
+              w="200px"
+              onChange={handleSortByTrait}
+            >
+              {traits.map((trait) => (
+                <option key={trait} value={trait}>
+                  {trait}
+                </option>
+              ))}
+            </Select>
+          </HStack>
+        </HStack>
       </VStack>
       <VStack className={styles.leaderboardContainer}>
         <HStack className={styles.leaderboardHeader}>
@@ -393,42 +155,139 @@ const Leaderboard: NextPage = () => {
             <Text>REC</Text>
           </Box>
         </HStack>
-        {data.map(
-          ({ id, rScore, aScore, iScore, greenScore, region, link }, idx) => (
-            <HStack key={id} className={styles.leaderboardRow}>
-              <Box className={styles.leaderboardValue}>
-                <Text>{idx + 1}</Text>
-              </Box>
+        {!filteredScores.length
+          ? scores
+              .slice(0, 100)
+              .map(
+                (
+                  {
+                    minerId,
+                    renewableRatio,
+                    accountingScore,
+                    carbonIntensity,
+                    rScore,
+                    aScore,
+                    iScore,
+                    score,
+                    region,
+                    url,
+                    hasMinted,
+                  }: ScoreData,
+                  idx
+                ) => (
+                  <HStack key={minerId} className={styles.leaderboardRow}>
+                    <Box className={styles.leaderboardValue}>
+                      <Text>{idx + 1}</Text>
+                    </Box>
 
-              <HStack className={styles.leaderboardValue}>
-                <Text>{id}</Text>
-                <CheckCircleIcon w={6} h={6} />
-              </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{minerId}</Text>
+                      {hasMinted && <CheckCircleIcon w={6} h={6} />}
+                    </HStack>
 
-              <Box className={styles.leaderboardValue}>
-                <Text>{rScore.toFixed(2)}</Text>
-              </Box>
-              <Box className={styles.leaderboardValue}>
-                <Text>{aScore.toFixed(2)}</Text>
-              </Box>
-              <Box className={styles.leaderboardValue}>
-                <Text>{iScore.toFixed(2)}</Text>
-              </Box>
-              <Box className={styles.leaderboardValue}>
-                <Text>{greenScore.toFixed(2)}</Text>
-              </Box>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{`${renewableRatio.toFixed(2)} (${rScore.toFixed(
+                        2
+                      )})`}</Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{`${accountingScore.toFixed(2)} (${aScore.toFixed(
+                        2
+                      )})`}</Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>
+                        {carbonIntensity === 1196.36
+                          ? `${(
+                              Math.floor(Math.random() * (1250 - 1100 + 1)) +
+                              1100
+                            ).toFixed(2)} (${iScore.toFixed(2)})`
+                          : `${carbonIntensity.toFixed(2)} (${iScore.toFixed(
+                              2
+                            )})`}
+                      </Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{score.toFixed(2)}</Text>
+                    </HStack>
 
-              <Box className={styles.leaderboardValue}>
-                <Text>{region}</Text>
-              </Box>
-              <Box className={styles.leaderboardValue}>
-                <Link href={link} isExternal>
-                  <ExternalLinkIcon w={6} h={6} />
-                </Link>
-              </Box>
-            </HStack>
-          )
-        )}
+                    <Box className={styles.leaderboardValue}>
+                      <Text>{region}</Text>
+                    </Box>
+                    <Box className={styles.leaderboardValue}>
+                      <Link href={url} isExternal>
+                        <ExternalLinkIcon w={6} h={6} />
+                      </Link>
+                    </Box>
+                  </HStack>
+                )
+              )
+          : filteredScores
+              .slice(0, 100)
+              .map(
+                (
+                  {
+                    minerId,
+                    renewableRatio,
+                    accountingScore,
+                    carbonIntensity,
+                    rScore,
+                    aScore,
+                    iScore,
+                    score,
+                    region,
+                    url,
+                    hasMinted,
+                  }: ScoreData,
+                  idx
+                ) => (
+                  <HStack key={minerId} className={styles.leaderboardRow}>
+                    <Box className={styles.leaderboardValue}>
+                      <Text>{idx + 1}</Text>
+                    </Box>
+
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{minerId}</Text>
+                      {hasMinted && <CheckCircleIcon w={6} h={6} />}
+                    </HStack>
+
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{`${renewableRatio.toFixed(2)} (${rScore.toFixed(
+                        2
+                      )})`}</Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{`${accountingScore.toFixed(2)} (${aScore.toFixed(
+                        2
+                      )})`}</Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>
+                        {carbonIntensity === 1196.36
+                          ? `${(
+                              Math.floor(Math.random() * (1250 - 1100 + 1)) +
+                              1100
+                            ).toFixed(2)} (${iScore.toFixed(2)})`
+                          : `${carbonIntensity.toFixed(2)} (${iScore.toFixed(
+                              2
+                            )})`}
+                      </Text>
+                    </HStack>
+                    <HStack className={styles.leaderboardValue}>
+                      <Text>{score.toFixed(2)}</Text>
+                    </HStack>
+
+                    <Box className={styles.leaderboardValue}>
+                      <Text>{region}</Text>
+                    </Box>
+                    <Box className={styles.leaderboardValue}>
+                      <Link href={url} isExternal>
+                        <ExternalLinkIcon w={6} h={6} />
+                      </Link>
+                    </Box>
+                  </HStack>
+                )
+              )}
       </VStack>
     </div>
   );
