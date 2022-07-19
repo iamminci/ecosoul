@@ -21,6 +21,7 @@
       "@utils/*": ["utils/*"],
       "@data/*": ["data/*"],
       "@state/*": ["state/*"],
+      "@public/*": ["public/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
