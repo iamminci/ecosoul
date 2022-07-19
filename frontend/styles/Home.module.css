@@ -7,7 +7,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: rgba(4, 14, 47);
+  background-color: #040e2f;
 }
 
 .heroVideo:after {

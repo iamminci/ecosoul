@@ -12,6 +12,7 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
+  exportTrailingSlash: true,
 };
 
 module.exports = nextConfig;
