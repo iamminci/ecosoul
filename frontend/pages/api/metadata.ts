@@ -15,7 +15,7 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   const dirRelativeToPublicFolder = "metadata";
-  const metadataDirPath = path.resolve("./public", dirRelativeToPublicFolder);
+  const metadataDirPath = path.resolve("@public/", dirRelativeToPublicFolder);
   const poggoFile = "poggo.jpg";
   const poggoPath = path.resolve("./public", poggoFile);
 

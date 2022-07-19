@@ -53,7 +53,7 @@ function roundRect(
 }
 
 async function drawPFP(context: any) {
-  const image = await loadImage("./public/pfp.png");
+  const image = await loadImage("@public//pfp.png");
   context.beginPath();
   context.arc(330, 200, 131, 0, 2 * Math.PI);
   context.stroke();
@@ -61,19 +61,19 @@ async function drawPFP(context: any) {
 }
 
 async function drawGold(context: any) {
-  const image = await loadImage("./public/gold.png");
+  const image = await loadImage("@public//gold.png");
   context.drawImage(image, 383, 228, 90, 92);
 }
 
 async function drawLogo(context: any) {
-  const image = await loadImage("./public/fil.png");
+  const image = await loadImage("@public//fil.png");
   context.globalAlpha = 0.5;
   context.drawImage(image, 40, 40, 50, 60);
   context.globalAlpha = 1;
 }
 
 async function drawBg(context: any) {
-  const image = await loadImage("./public/vaporwave4.png");
+  const image = await loadImage("@public//vaporwave4.png");
   context.globalAlpha = 0.3;
   context.drawImage(image, -205, 318, 1070, 341);
   context.globalAlpha = 1;
@@ -84,9 +84,9 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   const dirRelativeToPublicFolder = "metadata";
-  const metadataDirPath = path.resolve("./public", dirRelativeToPublicFolder);
+  const metadataDirPath = path.resolve("@public/", dirRelativeToPublicFolder);
   const poggoFile = "poggo.jpg";
-  const poggoPath = path.resolve("./public", poggoFile);
+  const poggoPath = path.resolve("@public/", poggoFile);
 
   if (req.method === "GET") {
     if (!PINATA_API_KEY || !PINATA_SECRET_KEY) {
@@ -235,9 +235,9 @@ export default async function handler(
     context.fillText(iScore, 570, 564);
 
     const buffer = canvas.toBuffer("image/png");
-    await fs.writeFileSync("./public/image.png", buffer);
+    await fs.writeFileSync("@public/image.png", buffer);
 
-    const readableStreamForFile = fs.createReadStream("./public/image.png");
+    const readableStreamForFile = fs.createReadStream("@public/image.png");
 
     const options: PinataPinOptions = {
       pinataMetadata: {
@@ -419,9 +419,9 @@ export default async function handler(
     context.fillText(iScore, 570, 564);
 
     const buffer = canvas.toBuffer("image/png");
-    await fs.writeFileSync("./public/image.png", buffer);
+    await fs.writeFileSync("@public/image.png", buffer);
 
-    const readableStreamForFile = fs.createReadStream("./public/image.png");
+    const readableStreamForFile = fs.createReadStream("@public/image.png");
 
     const options: PinataPinOptions = {
       pinataMetadata: {
@@ -454,6 +454,6 @@ export default async function handler(
     //   console.log("Metadata successfully uploaded to IPFS: ", result);
     //   const metadataUrl = `https://gateway.pinata.cloud/ipfs/${result.IpfsHash}`;
 
-    res.status(200).json(imageUrl);
+    // res.status(200).json(imageUrl);
   }
 }
