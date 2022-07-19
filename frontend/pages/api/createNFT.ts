@@ -454,6 +454,6 @@ export default async function handler(
     //   console.log("Metadata successfully uploaded to IPFS: ", result);
     //   const metadataUrl = `https://gateway.pinata.cloud/ipfs/${result.IpfsHash}`;
 
-    res.status(200).json(imageUrl);
+    // res.status(200).json(imageUrl);
   }
 }
