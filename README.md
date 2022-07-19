@@ -2,6 +2,8 @@
 
 "EcoSoul": A community hub for Filecoin Storage Providers to track their "green reputation score" both on- and off-chain.
 
+Check out the active deployment on IPFS via Fleek: https://cold-grass-6094.on.fleek.co/
+
 The project involves the following three components:
 
 1. Green Reputation Score ([`/score`](score))
