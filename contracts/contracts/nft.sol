@@ -30,14 +30,6 @@ contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
     constructor() ERC721("EcoSoul", "ECOSOUL") {}
 
     // ============ ACCESS CONTROL MODIFIERS ============
-    modifier oneTokenPerWallet() {
-        require(
-            balanceOf(msg.sender) < 1,
-            "Cannot mint more than one token per wallet"
-        );
-        _;
-    }
-
     modifier canMint() {
         require(
             tokenCounter.current() <= MAX_TOTAL_SUPPLY,
@@ -59,7 +51,7 @@ contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
     }
 
     // ============ PUBLIC FUNCTIONS FOR MINTING ============
-    function mint() external payable nonReentrant canMint oneTokenPerWallet {
+    function mint() external payable nonReentrant canMint {
         _safeMint(msg.sender, nextTokenId());
     }
 
@@ -120,6 +112,16 @@ contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
     function withdrawTokens(IERC20 token) public onlyOwner {
         uint256 balance = token.balanceOf(address(this));
         token.transfer(msg.sender, balance);
+    }
+
+    // ============ SOUL-BOUND OVERRIDE ============
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal override(ERC721) {
+        require(from == address(0), "Error: token is SOUL BOUND");
+        super._beforeTokenTransfer(from, to, tokenId);
     }
 
     receive() external payable {}

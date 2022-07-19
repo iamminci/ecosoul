@@ -1,15 +1,9 @@
-# Basic Sample Hardhat Project
+# EcoSoul-bound Community NFT
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This ERC721 implementation is a non-transferrable token that represents the green reputation metrics of a Filecoin Storage Provider. All metrics are hosted as metadata on IPFS via Pinata and set via a token base URI on the contract.
 
-Try running some of the following tasks:
+Here's an example of a EcoSoul NFT:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+![example EcoSoul-bound Community NFT](data/example.png)
+
+Learn more about how these metrics were calculated [here](/score/) or learn about the project [here](/CONTEXT.md).
