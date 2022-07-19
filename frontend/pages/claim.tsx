@@ -1,18 +1,14 @@
 import type { NextPage } from "next";
 import {
-  Button,
   VStack,
   Link,
-  Spacer,
   Text,
   Box,
   useDisclosure,
-  AspectRatio,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   Input,
@@ -25,8 +21,6 @@ import { useContractRead, useContractWrite } from "wagmi";
 import withTransition from "@components/withTransition";
 import { CheckIcon, CopyIcon } from "@chakra-ui/icons";
 import contract from "@data/EcoSoul.json";
-import { doc, getDoc } from "firebase/firestore";
-import db from "firebase/clientApp";
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 const BLOCK_EXPLORER = process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL;
