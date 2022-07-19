@@ -2,8 +2,7 @@ import { getCarbonIntensity } from "./getCarbonIntensity";
 import { calculateGranularityScore } from "./getGranularityScore";
 import { Miner } from "./getMinersWithLocation";
 import { calculateRenewableEnergyRatio } from "./getRenewableEnergyRatio";
-
-const fs = require("fs");
+import fs from "fs";
 
 type MinerScoreData = {
   carbonIntensity: number;
@@ -298,12 +297,4 @@ async function calculateIntensityScores() {
   }
 
   fs.writeFileSync(`3_finalIntensityScore.json`, JSON.stringify(resultMap));
-}
-
-if (require.main === module) {
-  // calculateCategoryScores();
-  // calculateGreenScores();
-  normalizeScores();
-  // calculateAccountingScores();
-  // calculateIntensityScores();
 }

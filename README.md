@@ -1,28 +1,13 @@
-# EcoSoul
+# EcoSoul: A Green Community Hub 🌱
 
-EcoSoul is a soul-bound token that represents an environmental score for storage providers. This is a project being built solely for the purpose of entry into the Sustainability Hackathon and potential further development for the Filecoin community.
+"EcoSoul": A community hub for Filecoin Storage Providers to track their "green reputation score" both on- and off-chain.
 
-### The idea is as follow:
+The project involves the following three components:
 
-- create a certificate NFT for storage providers on the filecoin network, like an honor system to incentivize them to stay env friendly
-- this will likely be a non-transferrable SBT (soul-bound token) which acts as a verified certification of your "environmental score"
-- we can further expand this idea to create a token that tracks any individual's environmental score which result from their env-friendly actions
+1. Green Reputation Score ([`/score`](score))
+2. Community NFT ([`/contracts`](contracts))
+3. Leaderboard ([`/frontend`](frontend))
 
-### MVP user experience:
+Learn more about each part of the project by clicking on the links above. Or learn more about the aim of this project by clicking ([`here`](/CONTEXT.md)).
 
-- every SP can mint the network NFT, auto-update the NFT based on data from filecoin's api endpoints
-- stretch demo: (community NFT) e.g. if a user brings a reusable bag to the grocery store, they can be rewarded in sustainability points
-
-### Tech stack:
-
-Frontend
-
-- NextJS
-- RainbowKit
-- Wagmi Hooks
-- IPFS
-- Firebase, if needed
-
-Contract
-
-- hardhat
+This project built during the [2022 Sustainability Blockchain Hackathon](https://gitcoin.co/hackathon/sustainable/?) hosted by Protocol Labs.

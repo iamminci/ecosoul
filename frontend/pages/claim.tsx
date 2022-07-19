@@ -43,7 +43,7 @@ const Claim: NextPage = () => {
   const [isVerified, setIsVerified] = useState<boolean>(false);
   const [isModalBtnLoading, setIsModalBtnLoading] = useState<boolean>(false);
 
-  const minerId = "f01234";
+  const minerId = "f999999";
 
   function handleClickCopyIcon() {
     setIsCopied(true);
@@ -253,7 +253,7 @@ const Claim: NextPage = () => {
               <button className={styles.btn} onClick={setupNFT}>
                 Claim Your NFT
               </button>
-              {mintTxnRespons2 && (
+              {mintTxnResponse && (
                 <VStack paddingTop="1rem">
                   <p style={{ color: "white" }}>
                     Your transaction was sent! Click here to view your
@@ -297,12 +297,12 @@ const Claim: NextPage = () => {
               </ModalHeader>
               <ModalCloseButton color="white" />
               <ModalBody className={styles.modalBody}>
-                <Text>Storage Provider ID: f01234</Text>
+                <Text>Storage Provider ID: f999999</Text>
                 <Box h="2rem" />
                 <Text>Worker Address: f3qc...ovpa</Text>
                 <Box h="2rem" />
                 <Text>
-                  Message: Signing message for f01234 on EcoSoul at 2022-07-17
+                  Message: Signing message for f999999 on EcoSoul at 2022-07-17
                   01:27:45{" "}
                 </Text>
                 <Box h="2rem" />
