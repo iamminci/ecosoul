@@ -1,24 +1,8 @@
 import axios from "axios";
 import fs from "fs";
 import dotenv from "dotenv";
-import { StringifyOptions } from "querystring";
+import { MinerLocationData, Location } from "./types";
 dotenv.config();
-
-type Location = {
-  latitude: number;
-  longitude: number;
-};
-
-type MinerLocationData = {
-  provider: string;
-  region: string;
-  long: number;
-  lat: number;
-  numLocations: number;
-  country: string;
-  city: string;
-  delegate: string;
-};
 
 // fetch locations of all Filecoin SPs
 async function fetchMinerLocations() {

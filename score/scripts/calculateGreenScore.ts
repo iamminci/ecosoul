@@ -1,35 +1,12 @@
 import { getCarbonIntensity } from "./getCarbonIntensity";
 import { calculateGranularityScore } from "./getGranularityScore";
-import { Miner } from "./getMinersWithLocation";
 import { calculateRenewableEnergyRatio } from "./getRenewableEnergyRatio";
 import fs from "fs";
-
-type MinerScoreData = {
-  carbonIntensity: number;
-  accountingScore: number;
-  renewableRatio: number;
-};
-
-type FinalMinerScoreData = {
-  carbonIntensity: number;
-  accountingScore: number;
-  renewableRatio: number;
-  rScore: number;
-  aScore: number;
-  iScore: number;
-  score: number;
-  minerId: string;
-  url: string;
-  region: string;
-  country: string;
-  long: number;
-  lat: number;
-  hasMinted: boolean;
-};
+import { FinalMinerScoreData, Miner, MinerScoreData } from "./types";
 
 // fetch list of all Filecoin Storage Providers who have purchased and consumed RECs
 async function calculateGreenScores() {
-  const file = fs.readFileSync("minerData/miners.json");
+  const file = fs.readFileSync("minerData/miners.json", "utf-8");
   const miners = JSON.parse(file);
 
   const scoreMap = {} as { [key: string]: MinerScoreData };
@@ -58,7 +35,7 @@ async function calculateGreenScores() {
 
 // fetch list of all Filecoin Storage Providers who have purchased and consumed RECs
 async function calculateGreenScores_v1() {
-  const file = fs.readFileSync(`finalCategoryScores.json`);
+  const file = fs.readFileSync(`finalCategoryScores.json`, "utf-8");
   const scoresMap = JSON.parse(file);
   // const file1 = fs.readFileSync(`1_finalRenewableScore.json`);
   // const file2 = fs.readFileSync(`2_finalAccountingScore.json`);
@@ -91,10 +68,10 @@ async function calculateGreenScores_v1() {
 // surplus ratio follows f(t)=0.2731ln(6.2403t) formula
 // final renewable score is out of 10
 async function normalizeScores() {
-  const file = fs.readFileSync("data/1_renewableScore.json");
-  const file2 = fs.readFileSync("data/2_accountingScore.json");
-  const file3 = fs.readFileSync("data/3_moerScore.json");
-  const file4 = fs.readFileSync("data/locationMap.json");
+  const file = fs.readFileSync("data/1_renewableScore.json", "utf-8");
+  const file2 = fs.readFileSync("data/2_accountingScore.json", "utf-8");
+  const file3 = fs.readFileSync("data/3_moerScore.json", "utf-8");
+  const file4 = fs.readFileSync("data/locationMap.json", "utf-8");
   const renewableScoresMap = JSON.parse(file);
   const accountingScoresMap = JSON.parse(file2);
   const intensityScoresMap = JSON.parse(file3);
@@ -207,7 +184,7 @@ async function normalizeScores() {
 // surplus ratio follows f(t)=0.2731ln(6.2403t) formula
 // final renewable score is out of 10
 async function calculateRenewableScores() {
-  const file = fs.readFileSync("1_renewableScore.json");
+  const file = fs.readFileSync("1_renewableScore.json", "utf-8");
   const renewableScoresMap = JSON.parse(file);
 
   const resultMap = {} as { [minerId: string]: number };
@@ -235,7 +212,7 @@ async function calculateRenewableScores() {
 }
 
 async function calculateAccountingScores() {
-  const file2 = fs.readFileSync("data/2_accountingScore.json");
+  const file2 = fs.readFileSync("data/2_accountingScore.json", "utf-8");
   const accountingScoresMap = JSON.parse(file2);
 
   const resultMap = {} as { [minerId: string]: number };
@@ -269,7 +246,7 @@ async function calculateAccountingScores() {
 }
 
 async function calculateIntensityScores() {
-  const file2 = fs.readFileSync("3_moerScore.json");
+  const file2 = fs.readFileSync("3_moerScore.json", "utf-8");
   const intensityScoresMap = JSON.parse(file2);
 
   const resultMap = {} as { [minerId: string]: number };

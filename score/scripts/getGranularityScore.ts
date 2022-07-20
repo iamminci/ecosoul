@@ -4,15 +4,8 @@
 
 // depending on gaps, should result in a pretty clear ranking
 import axios from "axios";
-import { Contract } from "./getAccountingScore";
 import { getMinerOperationTime } from "./getTotalConsumedEnergy";
-
-type MinerContractReportingPeriod = {
-  id: string;
-  startTime: number;
-  endTime: number;
-  period: number;
-};
+import { Contract, MinerContractReportingPeriod } from "./types";
 
 async function getOperationTime(minerId: string) {
   const [startTime, endTime] = await getMinerOperationTime(minerId);
@@ -83,16 +76,12 @@ export async function calculateGranularityScore(minerId: string) {
 
   let score = 0;
 
-  // console.log("reportingPeriods: ", reportingPeriods);
-
   reportingPeriods.forEach(({ period }) => {
     if (period) {
       score += getWeight(period) * period;
     }
   });
 
-  // score -= 0.05 * gapTime;
-  // console.log("score: ", score);
   return score;
 }
 

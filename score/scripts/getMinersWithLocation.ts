@@ -1,16 +1,7 @@
 import fs from "fs";
 import axios from "axios";
 import { getAccessToken } from "./getCarbonIntensity";
-
-export type Miner = {
-  id: string;
-  buyerId: string;
-  blockchainAddress: string;
-  region: string;
-  country: string;
-  createdAt: string;
-  updatedAt: string;
-};
+import { Miner } from "./types";
 
 async function getMinerBAWithLocation() {
   const file = fs.readFileSync("minerData/miners.json") as any;

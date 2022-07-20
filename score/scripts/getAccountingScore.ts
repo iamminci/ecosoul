@@ -1,30 +1,6 @@
 import axios from "axios";
 import fs from "fs";
-
-export type Contract = {
-  id: string;
-  productType: string;
-  energySources: string;
-  contractDate: string;
-  deliveryDate: string;
-  reportingStart: string;
-  reportingEnd: string;
-  buyer: any;
-  seller: any;
-  openVolume: string;
-  deliveredVolume: string;
-  purchases: string;
-  timezoneOffset: string;
-  filecoinNode: any;
-  externalId: string;
-  onchainId: string;
-  label: string;
-  createdAt: string;
-  updatedAt: string;
-  countryRegionMap: any;
-  pageUrl: string;
-  dataUrl: string;
-};
+import { Contract } from "./types";
 
 function getDeltaValue(contract: Contract): number {
   const { contractDate, reportingStart, reportingEnd } = contract;

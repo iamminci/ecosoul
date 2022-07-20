@@ -11,6 +11,8 @@
   "dependencies": {
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@openzeppelin/contracts": "^4.7.0",
+    "@pinata/sdk": "^1.1.26",
+    "canvas": "^2.9.3",
     "dotenv": "^16.0.1",
     "hardhat-gas-reporter": "^1.0.8",
     "keccak256": "^1.0.6",

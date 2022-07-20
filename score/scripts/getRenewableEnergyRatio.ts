@@ -27,8 +27,6 @@ async function fetchMinerRECList() {
   const minerList = response.data.data;
 
   const minerMap = {} as any;
-  //   console.log("minerList: ", minerList);
-  //   console.log("minerList length: ", minerList.length);
 
   for (let i = 0; i < 500; i++) {
     //   for (let i = 0; i < minerList.length; i++) {
@@ -47,14 +45,3 @@ async function writeFile() {
   //   }, {});
   fs.writeFileSync(`./ratioData500.json`, JSON.stringify(minerMap));
 }
-
-// if (require.main === module) {
-// writeFile();
-// fetchSingleMiner("f010490");
-// }
-
-// if (require.main === module) {
-//     calculateRenewableEnergyRatio("f01051178");
-//   }
-
-// module.exports = { fetchMinerRECList };

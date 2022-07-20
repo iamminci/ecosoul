@@ -1,10 +1,5 @@
 import axios from "axios";
-
-type Epoch = {
-  epoch: string;
-  miner: string;
-  timestamp: string;
-};
+import { Epoch } from "./types";
 
 // fetch all epochs for a given data model and minerId
 async function getAllEpochs(
