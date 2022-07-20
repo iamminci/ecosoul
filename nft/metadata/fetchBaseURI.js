@@ -3,7 +3,7 @@ const { generateMetadata } = require("./generateMetadata");
 const { uploadMetadata } = require("./uploadMetadata");
 
 async function main() {
-  // await uploadImages();
+  await uploadImages();
   await generateMetadata();
   await uploadMetadata();
 }

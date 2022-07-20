@@ -4,7 +4,7 @@ This ERC721 implementation is a non-transferrable token that represents the gree
 
 Check out the deployed NFT contract on Rinkeby Testnet: [0xEf3Ccc57Cd2c161658dF80A6C4BED5Ec0F98f95a](https://rinkeby.etherscan.io/address/0xEf3Ccc57Cd2c161658dF80A6C4BED5Ec0F98f95a)
 
-Check out the NFT Metadata hosted on IPFS via Pinata [here](https://gateway.pinata.cloud/ipfs/QmZRXXnRf3YK46yuzJTmQNrJG1nM8h1VQgBn7FP6hMmHge).
+Check out the NFT Metadata hosted on IPFS via Pinata [here](https://gateway.pinata.cloud/ipfs/QmcLdUq1LKKtW39a4KUKWepfF9SZnvADqqxUmGCUCseC5P).
 
 Here's an example of a EcoSoul NFT Image:
 
