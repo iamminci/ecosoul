@@ -46,4 +46,17 @@ Here's an example of a EcoSoul NFT JSON Metadata:
 
 ```
 
+### Tiers
+
+All storage providers are given tiers based on their overall green reputation score and rank. The tiers are as follows:
+
+- Platinum Tier: Top 50 Most Green SP's
+- Gold Tier: Top 150 Most Green SP's
+- Silver Tier: Top 300 Most Green SP's
+- Certified Tier: if score > 7.5
+
+These tiers are represented as badges on the community NFT image. Here's an example of a storage provider with a platinum badge:
+
+![example EcoSoul-bound Community NFT](data/f01234.png)
+
 Learn more about how these metrics were calculated [here](/score/) or learn about the project [here](/CONTEXT.md).
