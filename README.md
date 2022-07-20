@@ -8,7 +8,7 @@ The project involves the following three components:
 
 1. Green Reputation Score ([`/score`](score))
 2. Community NFT ([`/nft`](nft))
-3. Leaderboard ([`/frontend`](frontend))
+3. Leaderboard and Hub ([`/frontend`](frontend))
 
 Learn more about each part of the project by clicking on the links above. Or learn more about the aim of this project by clicking ([`here`](/CONTEXT.md)).
 
