@@ -25,11 +25,16 @@ contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
 
     bytes32 public adminMerkleRoot;
 
-    uint256 public constant MAX_TOTAL_SUPPLY = 5000;
+    uint256 public constant MAX_TOTAL_SUPPLY = 2000;
 
     constructor() ERC721("EcoSoul", "ECOSOUL") {}
 
     // ============ ACCESS CONTROL MODIFIERS ============
+    modifier oneTokenPerWallet() {
+        require(balanceOf(msg.sender) <= 1, "Exceeds one token per wallet");
+        _;
+    }
+
     modifier canMint() {
         require(
             tokenCounter.current() <= MAX_TOTAL_SUPPLY,
@@ -51,8 +56,15 @@ contract EcoSoul is ERC721, Ownable, ReentrancyGuard {
     }
 
     // ============ PUBLIC FUNCTIONS FOR MINTING ============
-    function mint() external payable nonReentrant canMint {
-        _safeMint(msg.sender, nextTokenId());
+    function mint(uint256 tokenId)
+        external
+        payable
+        nonReentrant
+        canMint
+        oneTokenPerWallet
+    {
+        _safeMint(msg.sender, tokenId);
+        tokenCounter.increment();
     }
 
     // ============ PUBLIC READ-ONLY FUNCTIONS ============

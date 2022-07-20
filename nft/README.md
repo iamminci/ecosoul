@@ -2,7 +2,9 @@
 
 This ERC721 implementation is a non-transferrable token that represents the green reputation metrics of a Filecoin Storage Provider. All metrics are hosted as metadata on IPFS via Pinata and set via a token base URI on the contract.
 
-Check out the NFT Metadata hosted on IPFS via Pinata [here](https://gateway.pinata.cloud/ipfs/QmdKNBCfdSgjfN4xJpbQ6PmRXNUS5XAGFEhXcMv69gvGPW).
+Check out the deployed NFT contract on Rinkeby Testnet: [0xEf3Ccc57Cd2c161658dF80A6C4BED5Ec0F98f95a](https://rinkeby.etherscan.io/address/0xEf3Ccc57Cd2c161658dF80A6C4BED5Ec0F98f95a)
+
+Check out the NFT Metadata hosted on IPFS via Pinata [here](https://gateway.pinata.cloud/ipfs/QmZRXXnRf3YK46yuzJTmQNrJG1nM8h1VQgBn7FP6hMmHge).
 
 Here's an example of a EcoSoul NFT Image:
 

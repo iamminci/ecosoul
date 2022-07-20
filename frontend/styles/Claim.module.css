@@ -185,3 +185,8 @@
 .input {
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
+
+.spidInput {
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  width: 26rem !important;
+}

@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link href="/" passHref>
             <Image
               alt="main logo"
-              src="logo.png"
+              src="/logo.png"
               className={styles.logo}
               cursor="pointer"
             />

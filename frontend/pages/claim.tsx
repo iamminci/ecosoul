@@ -15,12 +15,13 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import styles from "@styles/Claim.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { abridgeAddress } from "@utils/abridgeAddress";
-import { useContractRead, useContractWrite } from "wagmi";
+import { useContractWrite } from "wagmi";
 import withTransition from "@components/withTransition";
 import { CheckIcon, CopyIcon } from "@chakra-ui/icons";
 import contract from "@data/EcoSoul.json";
+import minerTokenIDMap from "@data/minerTokenIDMap.json";
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 const BLOCK_EXPLORER = process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL;
@@ -31,13 +32,15 @@ const Claim: NextPage = () => {
   const [baseURI, setBaseURI] = useState<string>("");
   const [scannedUserId, setScannedUserId] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [providerID, setProviderID] = useState<string>("");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [isVerified, setIsVerified] = useState<boolean>(false);
   const [isModalBtnLoading, setIsModalBtnLoading] = useState<boolean>(false);
 
-  const minerId = "f999999";
+  // @ts-ignore: map key typing is off, nbd
+  const tokenId = providerID ? minerTokenIDMap[providerID] : -1;
 
   function handleClickCopyIcon() {
     setIsCopied(true);
@@ -58,54 +61,6 @@ const Claim: NextPage = () => {
   }
 
   const {
-    data: lastTokenId,
-    isError,
-    isLoading: isLoadingLastTokenId,
-  } = useContractRead({
-    addressOrName: CONTRACT_ADDRESS
-      ? CONTRACT_ADDRESS
-      : "0x6eFfa56FDB4AF1688Fa9Ff5E6C7Eb24813f00060",
-    contractInterface: contract.abi,
-    functionName: "getLastTokenId",
-  });
-
-  // ADD USER TO DB
-  // const getUser = async (userId: string) => {
-  //   if (userId) {
-  //     const docRef = doc(db, "users", userId);
-  //     const docSnap = await getDoc(docRef);
-
-  //     if (docSnap.exists()) {
-  //       const foundUser = docSnap.data() as User;
-  //       setCurrentUser(foundUser);
-  //       return foundUser;
-  //       console.log("found user: ", foundUser);
-  //     } else {
-  //       console.log("user not found");
-  //     }
-  //   }
-  // };
-
-  // TODO: MERKLE PROOF FOR GATING NFT MINT ACCESS
-  // useEffect(() => {
-  //   // fetch user from DB, if it exists
-  //   getUser(userId);
-  // }, [userId]);
-
-  // // generate and set merkle proof to state
-  // useEffect(() => {
-  //   if (address) {
-  //     const merkle = generateMerkleProof(adminList, address);
-  //     console.log("merkle proof: ", merkle);
-  //     if (merkle.valid) {
-  //       setMerkleProof(merkle.proof);
-  //     } else {
-  //       setMerkleProof([]);
-  //     }
-  //   }
-  // }, [address]);
-
-  const {
     data: mintTxnResponse,
     error: mintError,
     isLoading: mintIsLoading,
@@ -116,6 +71,7 @@ const Claim: NextPage = () => {
       : "0x6eFfa56FDB4AF1688Fa9Ff5E6C7Eb24813f00060",
     contractInterface: contract.abi,
     functionName: "mint",
+    args: [tokenId],
     onError(error) {
       console.log(error);
     },
@@ -127,105 +83,20 @@ const Claim: NextPage = () => {
 
   const setupNFT = async () => {
     try {
-      if (!lastTokenId) {
-        console.error("Latest token ID not found");
+      if (!tokenId) {
+        console.error("No token ID found for given Storage Provider ID");
         return;
       }
       await mintWrite();
-      console.log("successfully minted EcoSoul NFT");
-      await updateBaseURI(minerId, lastTokenId.toNumber() + 1);
-      console.log("successfully added user to db");
+      console.log("mintng EcoSoul NFT...");
     } catch (err) {
       console.log("Error minting NFT: ", err);
     }
   };
 
-  // add user to DB if it doesn't exist
-  //   const addUser = async (tokenId: number) => {
-  //     const collRef = collection(db, "users");
-  //     await setDoc(doc(collRef, userId), {
-  //       address: address,
-  //       score1: 0,
-  //       score2: 0,
-  //       score3: 0,
-  //       score4: 0,
-  //       score5: 0,
-  //       ens: "ecosoul.eth",
-  //       tokenId: tokenId,
-  //     });
-  //   };
-
-  useEffect(() => {
-    async function hello() {
-      const response = await fetch("/api/createNFT");
-      console.log("response: ", response);
-    }
-    hello();
-  }, []);
-
-  const updateBaseURI = async (minerId: string, tokenId: number) => {
-    if (isLoading) return;
-    setIsLoading(true);
-    try {
-      const newUser = { minerId, tokenId };
-      // const fetchedUser = await getUser(userId);
-      // if (!fetchedUser) {
-      //   console.error("No user found of that userId");
-      //   return;
-      // }
-
-      //   if (!address || !adminList.includes(address)) {
-      //     console.error("Not an admin, cannot increment score");
-      //     return;
-      //   }
-
-      // first update increment user's score in the DB
-      // const newUser = await updateUserData(fetchedUser, scoreType);
-
-      // then recreate the user metadata and fetch new baseURI
-      const response = await fetch("/api/createNFT", {
-        method: "POST",
-        body: JSON.stringify(newUser),
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-
-      const newBaseURI = await response.json();
-      console.log("successfully fetched new base URI: ", newBaseURI);
-      // setBaseURI(newBaseURI);
-
-      // finally set new base URI on the contract to reflect on NFT
-      // await handleSetBaseURI(newBaseURI);
-    } catch (err) {
-      console.log("Error request: ", err);
-    }
+  const handleSetProviderID = (e: any) => {
+    setProviderID(e.target.value);
   };
-
-  // // increment user's score
-  // const updateUserData = async (userToUpdate: User, scoreType: ScoreType) => {
-  //   if (!userToUpdate || !userId) {
-  //     console.log("no user to update");
-  //     return;
-  //   }
-  //   const newUser = { ...userToUpdate };
-  //   newUser[scoreType] = userToUpdate[scoreType] + 1;
-  //   const collRef = collection(db, "users");
-  //   await setDoc(doc(collRef, userId), newUser);
-  //   console.log("successfully updated user score: ", newUser);
-
-  //   setCurrentUser(newUser);
-  //   return newUser;
-  // };
-
-  // async function handleSetBaseURI(baseURI: string) {
-  //   if (typeof window.ethereum === "undefined" || !CONTRACT_ADDRESS) return;
-  //   const provider = new ethers.providers.Web3Provider(window.ethereum as any);
-  //   const signer = provider.getSigner();
-  //   const nft = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
-  //   const transaction = await nft.setBaseURI(baseURI, merkleProof);
-  //   await transaction.wait();
-  // }
 
   return (
     <>
@@ -276,6 +147,14 @@ const Claim: NextPage = () => {
                 your account. Please verify your identity as a storage provider
                 in order to claim your NFT.
               </Text>
+              <Box pb="1rem">
+                <Input
+                  placeholder="Please provider your Storage Provider ID to verify."
+                  className={styles.spidInput}
+                  onChange={handleSetProviderID}
+                  value={providerID}
+                />
+              </Box>
               <button className={styles.btn} onClick={onOpen}>
                 Verify SP Identity
               </button>
@@ -291,13 +170,14 @@ const Claim: NextPage = () => {
               </ModalHeader>
               <ModalCloseButton color="white" />
               <ModalBody className={styles.modalBody}>
-                <Text>Storage Provider ID: f999999</Text>
+                <Text>{`Storage Provider ID: ${providerID}`}</Text>
                 <Box h="2rem" />
                 <Text>Worker Address: f3qc...ovpa</Text>
                 <Box h="2rem" />
                 <Text>
-                  Message: Signing message for f999999 on EcoSoul at 2022-07-17
-                  01:27:45{" "}
+                  {`Message: Signing message for ${providerID} on EcoSoul at 2022-07-17
+                  01:27:45`}
+                  {/* {`Message: Signing message for ${providerID} on EcoSoul at ${new Date().toLocaleString()}`} */}
                 </Text>
                 <Box h="2rem" />
                 <Text>Sign code</Text>

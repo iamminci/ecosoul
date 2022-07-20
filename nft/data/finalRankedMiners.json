@@ -33636,5 +33636,22 @@
     "lat": 50.1188,
     "hasMinted": false,
     "rank": 1949
+  },
+  "f999999": {
+    "carbonIntensity": 1586,
+    "accountingScore": 51.865024221781574,
+    "renewableRatio": 0.04720187550273074,
+    "score": 8.62,
+    "rScore": 8.91,
+    "aScore": 9.04,
+    "iScore": 7.53,
+    "minerId": "f999999",
+    "url": "https://github.com/iamminci/ecosoul",
+    "region": "NA-US-NY",
+    "country": "US",
+    "long": 8.6843,
+    "lat": 50.1188,
+    "hasMinted": false,
+    "rank": 137
   }
 }
