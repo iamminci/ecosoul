@@ -1,6 +1,6 @@
 # Green Reputation Score
 
-The Green Reputation Score is a score that measures how "green" a Filecoin Storage Provider. This score is at the core of the EcoSoul project. It comprises of three following sub-category scores:
+The Green Reputation Score is a score that measures how "green" a Filecoin Storage Provider. This score is at the core of the EcoSoul project. Here's a [video walkthrough](https://www.youtube.com/watch?v=7c69p2dWuwI) on the calculation. It comprises of three following sub-category scores:
 
 1. Renewable Energy Ratio Score (i.e. _rScore_)
 2. Accounting Granularity Score (i.e. _aScore_)
@@ -56,7 +56,7 @@ _“How closely does the renewable energy you’ve purchased match the energy yo
 
 ### Calculation
 
-In a given miner’s history of operation, calculate the accounting period for every REC they’ve purchased (where each Accounting Period (or `AC`) is reporting end time minus reporting start time).
+In a given miner’s history of operation, calculate the accounting period for every REC they’ve purchased (where each Accounting Period or AP is reporting end time minus reporting start time).
 
 $AP = [AP_1, AP_2 …, AP_n]$
 
@@ -70,7 +70,7 @@ $w_i = f(AP_i) = 0.6966 * e^{(-0.0023 AP_i)}$
 
 | Period (days) | Weight |
 | ------------- | ------ |
-| 365           | 0.3    |
+| 365           | 0.30   |
 | 180           | 0.46   |
 | 90            | 0.57   |
 | 30            | 0.65   |
